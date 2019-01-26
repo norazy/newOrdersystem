@@ -1,0 +1,2 @@
+class Orderlist < ApplicationRecord
+end

@@ -1,0 +1,540 @@
+// Place all the styles related to the orderlist controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// トップページ
+.top_page_background{
+    background-image: url('/ifuen3.jpg');
+    background-size:  cover;
+    // ↓共通部分
+    .clearfix:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    // ↓個別
+    .top_page_contents{
+        width: 960px;
+        height: 720px;
+        padding: 24px 0;
+        margin: 0 auto;
+        // ログアウトと言語タブの部分
+        .top_page_nav_n_title{
+            width: 100%;
+            height: 344px;
+            .top_page_nav {
+                height: 88px;
+                padding-top: 32px;
+                .top_page_nav_button {
+                    width: 48px;
+                    padding: 6px;
+                    border: solid 1px #ffffff;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    margin-left: 24px;
+                    background-color: rgba(225,225,225,0);
+                     i {
+                        color: #ffffff;
+                        font-size: 24px;
+                    }
+                }
+                
+                #nav_button2 {
+                    display: none;
+                }
+                .top_page_nav_div {
+                    margin-top: 16px;
+                    margin-left: 32px;
+                    width: 128px;
+                    ul {
+                        width: 100%;
+                        li {
+                            border-bottom: dotted 2px #af6469;
+                            background: #efefef;
+                            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                            height: 40px;
+                            text-align: center;
+
+                            position: relative;
+                            a {
+                                position: absolute;
+                                top: 0;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                                font-size: 19px;
+                                color: #343434;
+                                display: block;
+                                padding: 10px;
+                            }
+                        }
+                        li:last-child {
+                            border-bottom: none;
+                        }
+                    }
+                }
+            }
+            .top_page_title {
+                margin-top: 56px;
+                text-align: right;
+                padding-right: 40px;
+                p {
+                    font-size: 32px;
+                    color: #ffffff;
+
+                }
+            }
+        }
+        // メニューへ飛ぶリンクの部分
+        .top_page_menu {
+            width: 100%;
+            height: 376px;
+            // 各リンクへ飛ぶタブ（八ヶ所）
+            .top_page_menu_indiv {
+                width: 192px;
+                height: 120px;
+                margin: 16px 24px;
+                background-color: rgba(225,225,225,0.8);
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+                border-radius: 3px;
+
+                position: relative;
+            
+                a {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    
+                    p {
+                        font-size: 32px;
+                        color: #343434;
+                        margin: 44px 0;
+                        text-align: center;
+                    }
+                    .second{
+                        margin: 21px 0;
+                        line-height: 40px;
+                    }
+                }
+            }
+            .top_page_menu_upper {
+                padding-top: 56px;
+                box-sizing: border-box;
+                li {
+                    float: left;
+                }
+            }
+            .top_page_menu_lower {
+                padding-bottom: 4px;
+                li {
+                    float: left;
+                }
+            }
+        }
+    }
+}
+
+// セットメニュー
+.menu_background-color {
+    background-color: #f5f5dc;
+    
+    // ↓共通部分
+    .clearfix:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    .menu_button {
+        width: 132px;
+        height: 56px;
+        margin: 4px 14px;
+        box-sizing: border-box;
+        background-color: #000a34;
+        text-align: center;
+        border-radius: 2px;
+        font-size: 19px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+        position: relative;
+
+        a {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            text-decoration: none;
+            color: #ffffff;
+            p {
+                margin: 19px 0;
+            }
+        }
+    
+    }
+    // .blue {
+    //     background-color: #000a34;
+    // }
+    .orange {
+        background-color: #ea5317;
+    }
+    
+
+    .menu_background {
+        width: 960px;
+        height: 720px;
+        padding: 20px 0 28px;
+        margin: 0 auto;
+
+        .menu_header {
+            width: 960px;
+            height: 64px;
+            margin: 0 auto 8px;
+            .menu_header_left {
+                float: left;
+                display: flex;
+            }
+            .menu_button_right {
+                float: right;
+                display: flex;
+            }
+        }
+        .menu_category {
+            width: 960px;
+            height: 64px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .line {
+            width: 97%;
+            // height: 16px;
+            margin: 0 auto;
+            h2 {
+                border-bottom: solid 3px #d2d2d2;
+                position: relative;
+                margin: 15px 0 14px;
+            }
+        }
+        .menu_category2 {
+            width: 960px;
+            height: 74px;
+            margin: 0 auto;
+            padding-bottom: 10px;
+
+            box-sizing: border-box;
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                font-size: 19px;
+                color: #ffffff;
+
+                li {
+                    width: 132px;
+                    height: 56px;
+                    margin: 4px 14px;
+                    background-color: #000a34;
+                    text-align: center;
+                    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                    border-radius: 2px;
+                    cursor: pointer;
+
+                    p {
+                        margin: 19px 0;
+                    }
+                    .double {
+                        margin: 9px 0;
+                    }
+                    &.selected {
+                        background-color: #ea5317;
+                    }
+                      
+                }
+            }
+            
+        }
+        .menu_indiv {
+            width: 960px;
+            height: 484px;
+            margin: 0 auto;
+            padding: 8px 0;
+            overflow: scroll;
+
+            .menu_indiv_block {
+                width: 240px;
+                height: 210px;
+                float: left;
+                .menu_indiv_block2 {
+                    width: 216px;
+                    height: 162px;
+                    margin: 24px 12px;
+                    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.4);
+                    position: relative;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .menu_indiv_name {
+                        width: 100%;
+                        height: 42px;
+                        background-color: rgba(225, 225, 225, 0.8);
+                        text-align: center;
+                        font-size: 23px;
+                        color: #000000;
+                        padding-top: 8px;
+                        box-sizing: border-box;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                    }
+                }    
+            }
+
+
+            .category11 {
+                // width: 960px;
+                // height: 464px;
+                // margin: 8px 0;
+                // overflow: scroll;
+                // display: flex;
+                // .menu_indiv_block {
+                //     width: 240px;
+                //     height: 210px;
+                //     float: left;
+                //     .menu_indiv_block2 {
+                //         width: 216px;
+                //         height: 162px;
+                //         margin: 24px 12px;
+                //         box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.4);
+                //         position: relative;
+
+                //         img {
+                //             width: 100%;
+                //             height: 100%;
+                //         }
+                //         .menu_indiv_name {
+                //             width: 100%;
+                //             height: 42px;
+                //             background-color: rgba(225, 225, 225, 0.8);
+                //             text-align: center;
+                //             font-size: 23px;
+                //             color: #000000;
+                //             padding-top: 8px;
+                //             box-sizing: border-box;
+                //             position: absolute;
+                //             left: 0;
+                //             bottom: 0;
+                //         }
+                //     }    
+                // }
+                // display: none;
+            }
+            .category12 {
+                display: none;
+            }
+            .category13 {
+                display: none;
+            }
+        }
+    }
+}
+
+// モーダルのテスト
+#modal_bg {
+    // display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+#modal_menu_indiv {
+    // display: none;
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 912px;
+    height: 640px;
+    #orderlist_menu_id_2 {
+        display: none;
+    }
+
+    .modal_menu_indiv_upper {
+        width: 912px;
+        height: 426px;
+        display: flex;
+        .modal_menu_image {
+            width: 608px;
+            height: 426px;
+            position: relative;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+            img {
+                width: 608px;
+                height: 426px;
+            }
+            .modal_menu_title_n_price {
+                width: 100%;
+                height: 96px;
+    
+                position: absolute;
+                left: 0;
+                bottom: 0;
+    
+                background-color: rgba(225, 225, 225, 0.8);
+                font-size: 46px;
+                color: #000000;
+                
+                .modal_menu_title{
+                    width: 70%;
+                    height: 100%;
+                    float: left;
+                    text-align: left;
+                    p {
+                        margin-top: 28px;
+                        margin-left: 24px;
+                    }
+                }
+                .modal_menu_price {
+                    width: 30%;
+                    height: 100%;
+                    float: right;
+                    text-align: right;
+                    color: #942a2a;
+                    p {
+                        margin-top: 28px;
+                        margin-right: 24px;
+                    }
+    
+                }
+            }
+        }
+        .modal_menu_detail_n_number {
+            width: 304px;
+            height: 426px;
+            .modal_menu_detail {
+                width: 216px;
+                height: 216px;
+                margin: 0 auto;
+                background-color: rgba(225, 225, 225, 0.8);
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                p {
+                    font-size: 24px;
+                    margin: 0;
+                    padding: 20px;
+                    // word-break: keep-all;
+                    white-space: pre-line;
+                }
+
+            }
+            .modal_menu_number_box {
+                width: 192px;
+                height: 192px;
+                margin: 16px auto 0;
+                .modal_menu_number{
+                    width: 80px;
+                    height: 80px;
+                    margin: 8px;
+                    float: left;
+                    background-color: #f5f5dc;
+                    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                    p {
+                        margin: 20px 0;
+                        color: #000000;
+                        font-size: 40px;
+                        text-align: center;
+                    }
+                    #orderlist_number_1,#orderlist_number_2,#orderlist_number_3,#orderlist_number_4{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .modal_menu_indiv_bottom {
+        width: 912px;
+        height: 214px;
+        display: flex;
+        .modal_menu_option_box {
+            width: 608px;
+            height: 214px;
+            display: flex;
+            .modal_menu_option{
+                width: 172px;
+                height: 90px;
+                margin: auto;
+                background-color: #000a34;
+                text-align: center;
+                border-radius: 5px;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+                p {
+                    color: #ffffff;
+                    margin: 0;
+                    font-size: 32px;
+                    margin-top: 28px;
+                }
+                #orderlist_option_id_1,#orderlist_option_id_2,#orderlist_option_id_3 {
+                    display: none;
+                }
+            }
+        }
+        .modal_menu_tocart {
+            width: 304px;
+            height: 214px;
+            display: flex;
+            // border: solid 1px #ffffff;
+            .tocart_button {
+                width: 240px;
+                height: 90px;
+                margin: auto;
+                background-color: #ea5317;
+                border-radius: 5px;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+                text-align: center;
+                // p {
+                    color: #ffffff;
+                    // margin: 0;
+                    font-size: 32px;
+                    // margin-top: 28px;
+                    border: none;
+                // }
+            }
+
+        }
+    }
+}
+#modal_close {
+    cursor: pointer;
+    // display: none;
+    position:absolute;
+    top: 14px;
+    left: 20px;
+    width: 75px;
+    height: 75px;
+    background-color: #cd5c5c;
+    border-radius: 50%;
+    text-align: center;
+    i {
+        font-size: 36px;
+        color: #ffffff;
+        padding-top: 20px;
+        // margin: auto;
+    }
+}

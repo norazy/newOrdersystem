@@ -1,0 +1,86 @@
+<div id="modal_bg">
+</div>
+
+<div id="modal_menu_indiv">
+    <!--<2% form_with url: users_path do |form| %>-->
+    <%= form_for(@orderlist, url: '/order/modal_order') do |f| %>
+    <%= f.hidden_field(:menu_id, value: @menu.id)%>
+    
+    <!--ラジオボタンを使って:menu_idを持たせている部分-->
+    <%# f.radio_button(:menu_id, @menu.id, value: @menu.id, :checked => true) %>
+
+    <div class="modal_menu_indiv_upper">
+        <div class="modal_menu_image">
+            <img src="<%= @menu.image %>" alt="">
+            <div class="modal_menu_title_n_price clearfix">
+                <div class="modal_menu_title">
+                    <p><%= @menu.name %></p>
+                </div>
+                <div class="modal_menu_price">
+                    <p><%= @menu.price %>円</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal_menu_detail_n_number">
+            <div class="modal_menu_detail">
+                <p><%= @menu.detail %></p>
+            </div>
+            <div class="modal_menu_number_box clearfix">
+                <div class="modal_menu_number">
+                    <!--<p>1</p>-->
+                    <%= f.radio_button(:number, 1, :checked => true) %>
+                    <p><%= f.label(:number, "1", value: "1")  %></p>
+                </div>
+                <div class="modal_menu_number">
+                    <!--<p>2</p>-->
+                    <%= f.radio_button(:number, 2)%>
+                    <p><%= f.label(:number, "2", value: "2")  %></p>
+                </div>
+                <div class="modal_menu_number">
+                    <!--<p>3</p>-->
+                    <%= f.radio_button(:number, 3) %>
+                    <p><%= f.label(:number, "3", value: "3")  %></p>
+                </div>
+                <div class="modal_menu_number">
+                    <!--<p>4</p>-->
+                    <%= f.radio_button(:number, 4) %>
+                    <p><%= f.label(:number, "4", value: "4")  %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal_menu_indiv_bottom">
+        <div class="modal_menu_option_box">
+            <!--もしオプションの中に番号があったら表示-->
+            <% if @option1 %>
+                <div class="modal_menu_option">
+                    <%= f.radio_button(:option_id, @option1.id) %>
+                    <p><%= f.label(:option_id, @option_name1, value: @option1.id)  %></p>
+                    <!--<p><=@option1.name_opt%></p>-->
+                </div>
+            <% end %>
+            <% if @option2 %>
+                <div class="modal_menu_option">
+                    <%= f.radio_button(:option_id, @option2.id) %>
+                    <p><%= f.label(:option_id, @option_name2, value: @option2.id)  %></p>
+                </div>
+            <% end %>
+            <% if @option3 %>
+                <div class="modal_menu_option">
+                    <%= f.radio_button(:option_id, @option3.id) %>
+                    <p><%= f.label(:option_id, @option_name3, value: @option3.id)  %></p>
+                </div>
+            <% end %>
+        </div>
+        <div class="modal_menu_tocart">
+            <!--<div class="tocart_button">-->
+            <!--    <p>カートへ</p>-->
+            <!--</div>-->
+            <%= f.submit 'カートへ', class: 'tocart_button' %>
+        </div>        
+    </div>
+    <% end %>
+</div>
+<div id="modal_close">
+        <i class="fas fa-times"></i>
+</div>
