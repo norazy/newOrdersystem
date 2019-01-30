@@ -15,6 +15,7 @@ window.addEventListener('turbolinks:load', function() {
   }); 
 });
 
+// var box
 // モーダルの呼び出し
 $(document).on('turbolinks:load', function() {
   $(".menu_indiv_block").click(function(event){
@@ -24,21 +25,73 @@ $(document).on('turbolinks:load', function() {
     $.ajax({
         url: url,
         success: function(modal){
-          $("body").append(modal);
-          // $("#modal").html(modal);
+          modal_bg = $(modal).filter("#modal_bg");
+          modal_menu = $(modal).filter("#modal_menu_indiv");
+          modal_close = $(modal).filter("#modal_close");
+          
+          $("body").append(modal_bg);
+          $("body").append(modal_menu);
+          $("body").append(modal_close);
+
+          // console.log(modal_bg);
+          // box = $.parseHTML(modal)
+          // $("body").append(modal);
+
+          // モーダルを消す。ボタンの動き
+           $("#modal_close").click(function(){
+                // console.log(1)
+                $("#modal_bg").remove();
+                $("#modal_menu_indiv").remove();
+            });
+          // ↓注文個数のクリック後の色変更
+          $(".modal_menu_number label").click(function(){
+            $(".modal_menu_number").css("background-color", "#f5f5dc");
+            $(this).parent().css("background-color", "#ea5317");
+          });
+          // ↓オプションの選択部分
+          $(".modal_menu_option label").click(function(){
+            $(".modal_menu_option").css("background-color", "#000a34");
+            $(this).parent().css("background-color", "#ea5317");
+          });
         }
     });
   });
+  
 })  
 
 
 // モーダルを消す。ボタンの動き
-$(function() {
-    $("#modal_close").click(function(){
-      $(this).remove();
-      $("#modal_bg").remove();
-      $("#modal_menu_indiv").remove();
-    });
-})
+// $(document).on('turbolinks:load', function() {
+// $(function() {
+// window.addEventListener('turbolinks:load', function() {
+
+//     $("#modal_close").click(function(){
+//       console.log(1)
+//       // $(this).remove();
+//       $("#modal_bg").remove();
+//       $("#modal_menu_indiv").remove();
+//       // $.parseHTML(box);
+
+//       // $("body").remove(box);
+//       // console.log(box);
+//       // $(box).remove();
+//     });
+// })
 // ↑これに「$(document).on('turbolinks:load', function() {」をつけると
 // 逆にボタンが動かなくなる
+
+// // ↓注文個数のクリック後の色変更
+// $(function() {
+//   $(".modal_menu_number label").click(function(){
+//     $(".modal_menu_number").css("background-color", "#f5f5dc");
+//     $(this).parent().css("background-color", "#ea5317");
+//   });
+// })
+
+// // ↓オプションの選択部分
+// $(function() {
+//   $(".modal_menu_option label").click(function(){
+//     $(".modal_menu_option").css("background-color", "#000a34");
+//     $(this).parent().css("background-color", "#ea5317");
+//   });
+// })

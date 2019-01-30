@@ -1,4 +1,3 @@
-
 <div class="menu_background-color">
     <div class="menu_background">
         <header class="menu_header clearfix">
@@ -56,7 +55,7 @@
                 </div>
                 <div class="menu_button">
                     <a href="/order/dessert_menu">
-                        <p>デザート</p>
+                        <p class="double2">デザート<br>スープ</p>
                     </a>
                 </div>
                 <div class="menu_button">
@@ -89,7 +88,7 @@
                         <div class="menu_indiv_block2">
                             <!--<2%= link_to (order_indiv_url(menu.id)) do %>-->
                             <!--<2%= link_to (order_indiv_url(menu.id)), remote: true do %>-->
-                                <img src=<%= menu.image %> alt="">
+                                <%= image_tag "#{menu.image}" %>
                                 <div class="menu_indiv_name">
                                     <%= menu.name %>
                                 </div>
@@ -104,7 +103,7 @@
                     <div class="menu_indiv_block" menuid=<%= menu.id %>>
                         <!--<2%= link_to (order_indiv_url(menu.id)) do %>-->
                             <div class="menu_indiv_block2">
-                                <img src=<%= menu.image %> alt="">
+                                <%= image_tag "#{menu.image}" %>
                                 <div class="menu_indiv_name">
                                     <%= menu.name %>
                                 </div>
@@ -118,7 +117,7 @@
                     <div class="menu_indiv_block" menuid=<%= menu.id %>>
                         <!--<2%= link_to (order_indiv_url(menu.id)) do %>-->
                             <div class="menu_indiv_block2">
-                                <img src=<%= menu.image %> alt="">
+                                <%= image_tag "#{menu.image}" %>
                                 <div class="menu_indiv_name">
                                     <%= menu.name %>
                                 </div>
