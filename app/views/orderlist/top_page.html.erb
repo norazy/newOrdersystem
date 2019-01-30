@@ -7,7 +7,8 @@
                 </button>
                 <div class="top_page_nav_div" id="nav_button2">
                     <ul class="top_page_nav_ul">
-                        <li class="top_page_nav_li"><a href="#">ログアウト</a></li>
+                        <li class="top_page_nav_li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                        <!--<a href="/users/sign_out">ログアウト</a>-->
                         <!--↑delete　を使うからlink toに書き換える必要があるかも-->
                         <li class="top_page_nav_li"><a href="#">中国語</a></li>
                         <li class="top_page_nav_li"><a href="#">English</a></li>
