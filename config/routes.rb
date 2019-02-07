@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     root 'orderlist#top_page'
     # orderlistコントローラ
     get 'order/top' => 'orderlist#top_page'
+    
+    # get 'api/test' => 'orderlist#test'
 
     # 各メニューページ 
     get 'order/set_menu' => 'orderlist#set_menu'
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
 
     # 注文確認ページ
     get 'order/pre_order/:id' => 'orderlist#pre_order'
-    post 'order/pre_order/:id' => 'orderlist#post_order'
+    post 'order/pre_order' => 'orderlist#post_order'
     get 'order/ordered/:id' => 'orderlist#ordered'
 
     get 'order/modal_test/:id' => 'orderlist#modal', as: 'order_indiv'

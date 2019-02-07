@@ -20,13 +20,13 @@
                     </a>
                 </div>
                 <div class="menu_button orange">
-                    <a href="#">
                     <!--↑ここ多分link_toを使わないといけないと思う-->
-                        <p>未注文</p>
+                    <a href="/order/pre_order/<%= current_user.id %>">
+                        <p>未確定</p>
                     </a>
                 </div>
                 <div class="menu_button orange">
-                    <a href="#">
+                    <a href="/order/ordered/<%= current_user.id %>">
                         <p>注文済</p>
                     </a>
                 </div>
