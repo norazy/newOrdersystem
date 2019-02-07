@@ -15,7 +15,6 @@ window.addEventListener('turbolinks:load', function() {
   }); 
 });
 
-// var box
 // モーダルの呼び出し
 $(document).on('turbolinks:load', function() {
   $(".menu_indiv_block").click(function(event){
@@ -25,30 +24,29 @@ $(document).on('turbolinks:load', function() {
     $.ajax({
         url: url,
         success: function(modal){
+          // ↑これで呼び出すとhtmlのheadとかも全部呼び出される
+          // ↓なのでappendしたいidのみ呼び出す
           modal_bg = $(modal).filter("#modal_bg");
           modal_menu = $(modal).filter("#modal_menu_indiv");
           modal_close = $(modal).filter("#modal_close");
-          
+
           $("body").append(modal_bg);
           $("body").append(modal_menu);
           $("body").append(modal_close);
 
-          // console.log(modal_bg);
-          // box = $.parseHTML(modal)
-          // $("body").append(modal);
-
-          // モーダルを消す。ボタンの動き
+           // モーダルを消す。ボタンの動き
            $("#modal_close").click(function(){
-                // console.log(1)
                 $("#modal_bg").remove();
                 $("#modal_menu_indiv").remove();
             });
+          
           // ↓注文個数のクリック後の色変更
           $(".modal_menu_number label").click(function(){
             $(".modal_menu_number").css("background-color", "#f5f5dc");
             $(this).parent().css("background-color", "#ea5317");
           });
-          // ↓オプションの選択部分
+          
+          // ↓オプションの選択部分、選択すると色が変わる
           $(".modal_menu_option label").click(function(){
             $(".modal_menu_option").css("background-color", "#000a34");
             $(this).parent().css("background-color", "#ea5317");
@@ -56,42 +54,64 @@ $(document).on('turbolinks:load', function() {
         }
     });
   });
-  
 })  
 
+// 未確定メニューの数量変更　マイナス
+$(document).on('turbolinks:load', function() {
+  $(".minus_btn").click(function(){
+    
+    var number = $(".minus_btn").index(this);
+    var letter = $(".preorder_menu_number2 p").eq(number).html();
+    // 文字列を数値にする↓
+    letter = parseInt(letter);
 
-// モーダルを消す。ボタンの動き
-// $(document).on('turbolinks:load', function() {
-// $(function() {
-// window.addEventListener('turbolinks:load', function() {
+    if (letter >= 1) {
+        var letter2 = letter - 1
+        $(".preorder_menu_number2 p").eq(number).html(letter2);
+        $(".orderlist_number_value").eq(number).val(letter2);
+    }
+  });
+})
 
-//     $("#modal_close").click(function(){
-//       console.log(1)
-//       // $(this).remove();
-//       $("#modal_bg").remove();
-//       $("#modal_menu_indiv").remove();
-//       // $.parseHTML(box);
+// 未確定メニューの数量変更　プラス
+$(document).on('turbolinks:load', function() {
+  $(".plus_btn").click(function(){
+    var number = $(".plus_btn").index(this);
+    var letter = $(".preorder_menu_number2 p").eq(number).html();
+    // 文字列を数値にする↓
+    letter = parseInt(letter);
 
-//       // $("body").remove(box);
-//       // console.log(box);
-//       // $(box).remove();
-//     });
-// })
-// ↑これに「$(document).on('turbolinks:load', function() {」をつけると
-// 逆にボタンが動かなくなる
+    if (letter < 4 ) {
+        var letter2 = letter + 1
+        $(".preorder_menu_number2 p").eq(number).html(letter2);
+        $(".orderlist_number_value").eq(number).val(letter2);
 
-// // ↓注文個数のクリック後の色変更
-// $(function() {
-//   $(".modal_menu_number label").click(function(){
-//     $(".modal_menu_number").css("background-color", "#f5f5dc");
-//     $(this).parent().css("background-color", "#ea5317");
-//   });
-// })
+    }
+  });
+})
 
-// // ↓オプションの選択部分
-// $(function() {
-//   $(".modal_menu_option label").click(function(){
-//     $(".modal_menu_option").css("background-color", "#000a34");
-//     $(this).parent().css("background-color", "#ea5317");
-//   });
-// })
+// 合計を求める
+$(document).on('turbolinks:load', function() {
+  var sum = 0
+  // 合計を入れる変数を作成
+  
+  $(".ordered_menu").each(function(i){
+    // each文で注文済みのメニューを全部繰り返す
+    
+    var price = $(".ordered_menu_price p").eq(i).html();
+    // 価格を取り出す
+    var number = $(".ordered_menu_number p").eq(i).html();
+    // 個数を取り出す
+    var subtotal = price * number
+    // 各オーダーの小計を出す
+
+    sum += subtotal
+    // 小計をこれまでの合計に足す
+  });
+  
+  var sum2 = String(sum).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+  // 合計の数値を金額表示にする
+
+  $("#ordered_sum_price p").html(sum2);
+  // 合計の部分を表示させる
+})

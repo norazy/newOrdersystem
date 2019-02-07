@@ -147,6 +147,7 @@
 // 各メニューページメニュー
 .menu_background-color {
     background-color: #f5f5dc;
+    min-height: 768px;
     
     // ↓共通部分
     .clearfix:after {
@@ -194,7 +195,7 @@
     }
     .menu_background {
         width: 960px;
-        height: 720px;
+        // height: 720px;
         padding: 20px 0 28px;
         margin: 0 auto;
 
@@ -384,10 +385,7 @@
     }
 }
 
-// おすすめページ
-
-
-// モーダルのテスト
+// モーダル
 #modal_bg {
     // display: none;
     position: fixed;
@@ -531,7 +529,6 @@
                 font-size: 36px;
                 color: #ffffff;
                 padding-top: 20px;
-                // margin: auto;
             }
         }
     }
@@ -563,7 +560,6 @@
                     font-size: 32px;
                     padding-top: 28px;
                     cursor: pointer;                        
-
                 }
                 #orderlist_option_id_1,#orderlist_option_id_2,#orderlist_option_id_3 {
                     display: none;
@@ -574,7 +570,6 @@
             width: 304px;
             height: 214px;
             display: flex;
-            // border: solid 1px #ffffff;
             .tocart_button {
                 width: 240px;
                 height: 90px;
@@ -583,33 +578,243 @@
                 border-radius: 5px;
                 box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
                 text-align: center;
-                // p {
-                    color: #ffffff;
-                    // margin: 0;
-                    font-size: 32px;
-                    // margin-top: 28px;
-                    border: none;
-                // }
+                color: #ffffff;
+                font-size: 32px;
+                border: none;
+                cursor: pointer;
             }
-
         }
     }
 }
-// #modal_close {
-//     cursor: pointer;
-//     // display: none;
-//     position: absolute;
-//     top: 14px;
-//     left: 20px;
-//     width: 75px;
-//     height: 75px;
-//     background-color: #cd5c5c;
-//     border-radius: 50%;
-//     text-align: center;
-//     i {
-//         font-size: 36px;
-//         color: #ffffff;
-//         padding-top: 20px;
-//         // margin: auto;
-//     }
-// }
+
+// 未確定ページ
+.preorder_title {
+    width: 97%;
+    margin: 3% auto 0;
+    p {
+        font-size: 28px;
+        margin: 36px 0 10px;
+    }
+}
+.preorder_display {
+    width: 800px;
+    margin: 0 auto;
+    .preorder_menu {
+        width: 93%;
+        margin: 5% auto;
+        text-align: center;
+        .preorder_menu_indiv {
+            height: 70px;
+            width: 100%;
+            border-bottom: 2px solid #ea5317;
+            display: flex;
+            font-size: 30px;
+            margin-top: 4%;
+            .preorder_menu_name {
+                width: 360px;
+                height: 100%;
+                text-align: left;
+                p {
+                    margin: 7% 0 0 15%;
+                }
+            }
+            .preorder_menu_minus {
+                width: 120px;
+                height: 100%;
+                margin-left: 80px;
+                .minus_btn {
+                    width: 50px;
+                    height: 50px;
+                    line-height: 50px;
+                    border-radius: 50%;
+                    text-align: center;
+                    overflow: hidden;
+                    font-weight: bold;
+                    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.28);
+                    color: #ffffff;
+                    margin-left: 45%;
+                    margin-top: 11%;
+                    background-image: linear-gradient(#343e68 0%, #000a34 100%);
+                    cursor: pointer;
+                }
+            }
+            .preorder_menu_number {
+                width: 120px;
+                height: 100%;
+                color: #ea5317;
+                .preorder_menu_number2 {
+                    width: 90%;
+                    height: 89%;
+                    background-color: #ffffff;
+                    margin: 0 auto;
+                    margin-top: 4%;
+                    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.28);
+                    font-weight: bold;
+                    // text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.28);
+                     p {
+                         margin: 0;
+                         padding-top: 18%;
+                         font-size: 30px;
+                    }
+                }
+           }
+            .preorder_menu_plus {
+                width: 120px;
+                height: 100%;
+                .plus_btn {
+                    cursor: pointer;
+                    width: 50px;
+                    height: 50px;
+                    line-height: 50px;
+                    border-radius: 50%;
+                    text-align: center;
+                    overflow: hidden;
+                    font-weight: bold;
+                    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.28);
+                    color: #ffffff;
+                    margin-left: 15%;
+                    margin-top: 11%;
+                    background-image: linear-gradient(#ff874b 0%, #ea5317 100%);
+                }
+            }
+        }
+    }
+    .preorder_bt_div {
+        height: 70px;
+        width: 100%;
+        text-align: center;
+        margin-top: 10%;
+        .preorder_button {
+            background-color: #ea5317;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+            height: 65px;
+            width: 216px;
+            border-radius: 3px;
+            float: right;
+            font-size: 24px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    }
+}
+
+
+// 注文済画面
+.ordered_display {
+    width: 800px;
+    margin: 0 auto;
+    // height: 800px;
+    // 共通部分↓
+
+    .ordered_div {
+        width: 93%;
+        margin: 7% auto;
+        text-align: center;
+
+        ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            .ordered_title_indiv {
+                // width: 184px;
+                border: 2px solid #ffffff;
+                height: 38px;
+                background-color: #000a34;
+                color: #ffffff;
+                font-size: 24px;
+                padding-top: 14px;
+            }
+            .width1 {
+                width: 328px;
+                border-left: none;
+            }
+            .width2 {
+                width: 130px;
+            }
+            .width3 {
+                width: 150px;
+                border-right: none;
+            }
+
+        }
+        .ordered_menu {
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            p {
+                margin: 0;
+            }
+            
+            .ordered_menu_name {
+                border: 2px solid #ffffff;
+                border-bottom: 2px solid #ea5317;
+                height: 40px;
+                font-size: 28px;
+                padding-top: 5%;
+                width: 328px;
+                border-left: none;
+                text-align: left;
+            }
+            .ordered_menu_price {
+                border: 2px solid #ffffff;
+                border-bottom: 2px solid #ea5317;
+                height: 40px;
+                font-size: 28px;
+                padding-top: 5%;
+                width: 130px;
+            }
+            .ordered_menu_number {
+                border: 2px solid #ffffff;
+                border-bottom: 2px solid #ea5317;
+                height: 40px;
+                padding-top: 5%;
+                width: 130px;
+                color: #ea5317;
+                font-size: 32px;
+            }
+            .ordered_menu_state {
+                border: 2px solid #ffffff;
+                border-bottom: 2px solid #ea5317;
+                height: 40px;
+                font-size: 28px;
+                padding-top: 5%;
+                width: 150px;
+                border-right: none;
+            }
+        }
+    }
+    .ordered_sum {
+        margin-top: 13%;
+        .ordered_sum_title_n_price {
+            width: 50%;
+            float: right;
+            display: flex;
+
+            .ordered_sum_title {
+                width: 30%;
+                height: 50px;
+                background-color: #000a34;
+                color: #ffffff;
+                border-radius: 15px 0 0 15px;
+                font-size: 24px;
+                padding-top: 25px;
+            }
+            #ordered_sum_price {
+                width: 70%;
+                height: 49px;
+                background-color: #ffffff;
+                color: #000000;
+                border-radius: 0 15px 15px 0;
+                font-size: 32px;
+                padding-top: 22px;
+                border: 2px solid #000a34;
+                p {
+                    margin: 0;
+                    // font-size: 28px;
+                }
+            }
+        }
+    }
+
+}
