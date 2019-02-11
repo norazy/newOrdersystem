@@ -10,14 +10,14 @@
             </div>
             <div class="menu_button_right">
                 <div class="menu_button orange">
-                    <a href="#">
+                    <%= link_to order_cashier_path, :method => :post do %>
                         <p>会計</p>
-                    </a>
+                 	<%end%>
                 </div>
                 <div class="menu_button orange">
-                    <a href="#">
+                    <%= link_to order_staff_path, :method => :post do %>
                         <p>呼出</p>
-                    </a>
+                 	<%end%>
                 </div>
                 <div class="menu_button orange">
                     <a href="/order/pre_order/<%= current_user.id %>">
@@ -68,10 +68,10 @@
                 <% @menus1.each do |menu| %>
                     <div class="menu_indiv_block" menuid=<%= menu.id %>>
                         <div class="menu_indiv_block2">
-                                <%= image_tag "#{menu.image}" %>
-                                <div class="menu_indiv_name">
-                                    <%= menu.name %>
-                                </div>
+                            <%= image_tag "#{menu.image}" %>
+                            <div class="menu_indiv_name">
+                                <%= menu.name %>
+                            </div>
                         </div>
                     </div>
                 <% end %>
@@ -79,8 +79,23 @@
         </div>
     </div>
 </div>
-<!--<2% if flash[:notice].present? %>-->
-<!--    <script>-->
-<!--        alert("<2%= flash[:notice] %>");-->
-<!--    </script>-->
-<!--<2% end %>-->
+
+
+<% if flash[:notice].present? %>
+    <!--    <script>-->
+    <!--        alert("<2%= flash[:notice] %>");-->
+    <!--    </script>        -->
+    <div id="toasts">未確定注文に入れました！</div>
+<% end %>
+
+<% if flash[:error].present? %>
+    <div id="toasts">ただいまお伺いします<br><br>少々お待ちくださいませ</div>
+<% end %>
+
+
+<!-- Use a button to open the snackbar -->
+<!--<button onclick="myFunction()">Show Snackbar</button>-->
+
+<!-- The actual snackbar -->
+    <!--<div id="snackbar">Some text some message..</div>-->
+

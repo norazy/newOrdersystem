@@ -19,7 +19,7 @@ window.addEventListener('turbolinks:load', function() {
 $(document).on('turbolinks:load', function() {
   $(".menu_indiv_block").click(function(event){
     var id = $(this).attr('menuid')
-    var url = '/order/modal_test/' + id
+    var url = '/order/modal/' + id
     
     $.ajax({
         url: url,
@@ -53,6 +53,7 @@ $(document).on('turbolinks:load', function() {
           });
         }
     });
+
   });
 })  
 
@@ -115,3 +116,11 @@ $(document).on('turbolinks:load', function() {
   $("#ordered_sum_price p").html(sum2);
   // 合計の部分を表示させる
 })
+
+// トーストのフェイドアウト
+$(function(){
+    $("#toasts").show();
+    $("#toasts").fadeOut(5000);
+});
+// $(document).on('turbolinks:load', function() 
+//↑これをつけると動かなくなる

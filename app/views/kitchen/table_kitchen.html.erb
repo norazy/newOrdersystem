@@ -1,0 +1,52 @@
+<div class="kitchen_background-color">
+    <div class="kitchen_background">
+        <header class="kitchen_header clearfix">
+            <div class="kitchen_header_left">
+                <div class="kitchen_button orange">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </div>
+            </div>
+            <div class="kitchen_button_right">
+                <div class="kitchen_button">
+                    <a href="/kitchen/table">
+                        <p>テーブル</p>
+                    </a>
+                </div>
+                <div class="kitchen_button orange">
+                    <a href="/kitchen/ordered">
+                        <p>調理待</p>
+                    </a>
+                </div>
+                <div class="kitchen_button orange">
+                    <a href="/kitchen/served">
+                        <p>注文一覧</p>
+                    </a>
+                </div>
+                <div class="kitchen_button orange">
+                    <a href="/kitchen/notification">
+                        <p>通知一覧</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div>
+</div>
+
+    <!--<2%if flash[:alert] %>-->
+    <!--    <div class="flashes">-->
+    <!--    </div>            -->
+    <!--<2% end %>-->
+
+
+
+<!--<script>-->
+<!--$(document).on('turbolinks:load', function() {-->
+<!--    console.log(1)-->
+<!--    var p = $("div").hasClass('flashes');-->
+<!--    console.log(p)-->
+<!--    if (p) {-->
+<!--      alert('検出されました！');-->
+<!--      console.log(3)-->
+<!--    }-->
+<!--})-->
+<!--</script>-->

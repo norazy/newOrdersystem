@@ -5,6 +5,9 @@ class OrderlistController < ApplicationController
     #     render json: Orderlist.where(user_id: current_user.id)
     # end
 
+    def first
+    end
+
     def top_page
     end
 
@@ -105,17 +108,17 @@ class OrderlistController < ApplicationController
         menu = Menu.find(orderlist_params[:menu_id])
         menu_price = menu.price
 
-        # まだフォームを作ってない、とりあえずどんなパラムズになるかなって書いてみた。190117
+        # # まだフォームを作ってない、とりあえずどんなパラムズになるかなって書いてみた。190117
 
         if orderlist_params[:option_id] then
-            # オプション価格の呼び出し
+        #     # オプション価格の呼び出し
             option = Optiontable.find(orderlist_params[:option_id])
             option_price = option.price_opt
 
             Orderlist.create(user_id: current_user.id, menu_id: orderlist_params[:menu_id], price: menu_price, number: orderlist_params[:number], state: "0")
-            # ↓ここでオプションにメニューidを持たせたないのは
-            # 未確定のところで、メニューidを持ってるかどうかで条件分岐させているから
-            # （オプションidで条件分岐させてもよかったんだけど。。）
+        #     # ↓ここでオプションにメニューidを持たせたないのは
+        #     # 未確定のところで、メニューidを持ってるかどうかで条件分岐させているから
+        #     # （オプションidで条件分岐させてもよかったんだけど。。）
             Orderlist.create(user_id: current_user.id, option_id: orderlist_params[:option_id], price: option_price, number: orderlist_params[:number], state: "0")
         else
             Orderlist.create(user_id: current_user.id, menu_id: orderlist_params[:menu_id], price: menu_price, number: orderlist_params[:number], state: "0")
@@ -124,7 +127,7 @@ class OrderlistController < ApplicationController
         # createのあとは新しいビューに飛ばずに、backするように設定する
         # かつ、「カートに入れた」っていうメッセージを出す
         redirect_back(fallback_location: root_path)
-        # flash[:notice] = "カートにいれました！"
+        flash[:notice] = "カートに入りました！"
     end
 
     # 未確定注文のページ
@@ -186,6 +189,12 @@ class OrderlistController < ApplicationController
                 orderlist.save
             end
         end
+        
+        # notificationテーブルに新しい注文が入ったことを知らせる
+        Notification.create(table_id: current_user.id, 	state: 3)
+
+        redirect_to order_top_path
+        flash[:notice] = "something"
 
         # 自分が最初に作ったパラムズに対してのコード
         # 取り出したparamsは{"id"=>["17", "18"....], "number"=>[], "state"=>[]}
@@ -214,7 +223,6 @@ class OrderlistController < ApplicationController
         # i = i + 1
 
         # end
-        redirect_to root_path
     end
 
     # 注文済画面
@@ -253,8 +261,25 @@ class OrderlistController < ApplicationController
             
             @ordered << hash
         end
-
     end
+    
+    # 「会計」の呼び出し
+    def call_cashier
+        Notification.create(table_id: current_user.id, 	state: 1)
+
+        redirect_back(fallback_location: root_path)
+        flash[:error] = "something"
+    end
+    
+    # スタッフの呼び出し
+    def call_staff
+        Notification.create(table_id: current_user.id, 	state: 2)
+
+        redirect_back(fallback_location: root_path)
+        flash[:error] = "something"
+    end
+
+
 
     private
     def orderlist_params
@@ -270,6 +295,5 @@ class OrderlistController < ApplicationController
     #     # params.require(:orderlist).permit
     #     params.require(:orderlist).map{|o| o.permit([:order_id, :number, :state]) }
     # end
-
 
 end
