@@ -10,14 +10,14 @@
             </div>
             <div class="menu_button_right">
                 <div class="menu_button orange">
-                    <a href="#">
+                    <%= link_to order_cashier_path, :method => :post do %>
                         <p>会計</p>
-                    </a>
+                 	<%end%>
                 </div>
                 <div class="menu_button orange">
-                    <a href="#">
+                    <%= link_to order_staff_path, :method => :post do %>
                         <p>呼出</p>
-                    </a>
+                 	<%end%>
                 </div>
                 <div class="menu_button orange">
                     <!--↑ここ多分link_toを使わないといけないと思う-->
@@ -129,3 +129,11 @@
         </div>
     </div>
 </div>
+
+
+<% if flash[:notice].present? %>
+    <div id="toasts">未確定注文に入れました！</div>
+<% end %>
+<% if flash[:error].present? %>
+    <div id="toasts">ただいまお伺いします<br><br>少々お待ちくださいませ</div>
+<% end %>

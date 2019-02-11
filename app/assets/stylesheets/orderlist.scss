@@ -2,7 +2,48 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// トップページ
+
+// サインインをした後のトップページ
+.page_block {
+    width: 100%;
+    display: flex;
+    
+}
+.to_each_page {
+    width: 50%;
+    height: 380px;
+    position: relative;
+
+    a {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding-top: 25%;
+        text-align: center;
+        text-decoration: none;
+        i {
+            font-size: 72px;
+        }        
+    }
+}
+.red {
+    background-color: #eb584e;
+}
+.blue {
+    background-color: #4c8ca5;
+}
+.yellow {
+    background-color: #fbd868;
+}
+.white {
+    background-color: #f3f3ef;
+}
+
+
+// オーダーのトップページ
 .top_page_background{
     background-image: url('/ifuen3.jpg');
     background-size:  cover;
@@ -818,3 +859,23 @@
     }
 
 }
+
+// カートに入れた時に現れるトースト
+#toasts {
+//   visibility: hidden; /* Hidden by default. Visible on click */
+    display: none;
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  top: 50px; /* 30px from the bottom */
+}
+
+
+

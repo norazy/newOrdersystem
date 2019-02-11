@@ -10,14 +10,14 @@
             </div>
             <div class="menu_button_right">
                 <div class="menu_button orange">
-                    <a href="#">
+                    <%= link_to order_cashier_path, :method => :post do %>
                         <p>会計</p>
-                    </a>
+                 	<%end%>
                 </div>
                 <div class="menu_button orange">
-                    <a href="#">
+                    <%= link_to order_staff_path, :method => :post do %>
                         <p>呼出</p>
-                    </a>
+                 	<%end%>
                 </div>
                 <div class="menu_button">
                     <a href="#">
@@ -104,11 +104,12 @@
                 </div>
                 <div class="preorder_bt_div clearfix">
                 <%= f.submit '注文する', class: 'preorder_button' %>
-
-            </div>
-
-
+                </div>
             <% end %>
         </div>
     </div>    
 </div>
+
+<% if flash[:error].present? %>
+    <div id="toasts">ただいまお伺いします<br><br>少々お待ちくださいませ</div>
+<% end %>

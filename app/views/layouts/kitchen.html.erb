@@ -14,9 +14,19 @@
     <!--↓jquery-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+    <!--自動的にリフレッシュしてくれ機能-->
+    <!--<meta http-equiv="Refresh" content="300">-->
+
   </head>
 
   <body>
+    <%if flash[:alert] %>
+        <div class="flashes">
+        </div>            
+    <% end %>
+  
     <%= yield %>
 
   </body>
