@@ -18,8 +18,8 @@
                     </a>
                 </div>
                 <div class="kitchen_button orange">
-                    <a href="/kitchen/served">
-                        <p>注文一覧</p>
+                    <a href="/kitchen/option_change">
+                        <p>注文変更</p>
                     </a>
                 </div>
                 <div class="kitchen_button">
@@ -84,32 +84,3 @@
         </div>
     </div>
 </div>
-<script>
-//   var reloadMessages = function() {
-//     $.ajax({
-//       url: '/kitchen/notification',
-//       type: 'GET',
-//       dataType: 'json'
-//     })
-//     .done(function(messages) {
-//       console.log('hoge');
-//       var insertHTML = '';
-//       messages.forEach(function(message) {
-//         insertHTML += buildMessageHTML(message);
-//       });
-//      //htmlの文をinterHTMLに入れる
-
-//       var $messages = $('.js-messages');
-//       $messages.empty();
-//       $messages.append(insertHTML);
-//       $messages.animate({scrollTop: $messages[0].scrollHeight}, 2000);
-//     })
-//     .fail(function() {
-//       console.log('error');
-//     });
-//   };
-//  setInterval(reloadMessages, 7000);
-// setInterval(function(){
-//     console.log("p");//idをclearIntervalで指定している
-//     }, 1000);
-</script>

@@ -28,12 +28,23 @@ Rails.application.routes.draw do
     post 'order/modal_order' => 'orderlist#order_create'
     
     # キッチン側のページ
+      # テーブル状態一覧
     get 'kitchen/table' => 'kitchen#table_kitchen'
-    get 'kitchen/ordered' => 'kitchen#ordered_kitchen'
-    get 'kitchen/served' => 'kitchen#served'
-    get 'kitchen/order_change' => 'kitchen#order_change'
-    post 'kitchen/order_change' => 'kitchen#update_order'
+    
+      # 通知一覧
     get 'kitchen/notification' => 'kitchen#notification'
     delete 'kitchen/notification/:id' => 'kitchen#destroy', as: 'notification_destroy'
     
+      # 調理待一覧
+    get 'kitchen/ordered' => 'kitchen#ordered_kitchen'
+    delete 'kitchen/forcook/:id' => 'kitchen#destroy_order', as: 'forcook_destroy'
+    post 'kitchen/cooked/:id' => 'kitchen#change_state', as: 'change_to_cooked'
+    post 'kitchen/served/:id' => 'kitchen#change_state2', as: 'change_to_served'
+
+      # 注文一覧
+    get 'kitchen/served' => 'kitchen#served'
+
+      # オプション追加一覧
+    get 'kitchen/option_change' => 'kitchen#option_change'
+    post 'kitchen/option_change' => 'kitchen#post_option'
 end
