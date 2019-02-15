@@ -1,6 +1,6 @@
 class OrderlistController < ApplicationController
     # ↓サインインしているかどうかの確認
-    # before_action :move_to_signin 
+    before_action :move_to_signin 
     # def test
     #     render json: Orderlist.where(user_id: current_user.id)
     # end
@@ -107,8 +107,6 @@ class OrderlistController < ApplicationController
         # メニュー価格の呼び出し
         menu = Menu.find(orderlist_params[:menu_id])
         menu_price = menu.price
-
-        # # まだフォームを作ってない、とりあえずどんなパラムズになるかなって書いてみた。190117
 
         if orderlist_params[:option_id] then
         #     # オプション価格の呼び出し
@@ -228,7 +226,7 @@ class OrderlistController < ApplicationController
     # 注文済画面
     def ordered
         # 現在ログインしているユーザーの状態が０のオーダーを引き出す
-        ordered = Orderlist.where(user_id: params[:id]).where(state: 1..3).order('state ASC')
+        ordered = Orderlist.where(user_id: params[:id]).where(state: 1..3).order('state ASC').order('id ASC')
         # binding.pry
         # ビューに渡す配列作成
         @ordered = []
