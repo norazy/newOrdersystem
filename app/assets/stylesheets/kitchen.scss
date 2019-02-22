@@ -1,6 +1,3 @@
-// Place all the styles related to the kitchen controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
 .kitchen_background-color {
     background-color: #f5f5dc;
@@ -18,7 +15,7 @@
         height: 56px;
         margin: 4px 14px;
         // box-sizing: border-box;
-        background-color: #000a34;
+        background-color: #ea5317;
         text-align: center;
         border-radius: 2px;
         font-size: 19px;
@@ -275,7 +272,7 @@
             }
             .table_indiv{
                 border-radius: 3px;
-                box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+                box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
                 text-align: center;
             }
             .front_table {
@@ -284,7 +281,7 @@
                 .front_table_1_4 {
                     width: 100%;
                     height: 100px;
-                    background-color: #000a34;
+                    background-color: #ffffff;
                     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
                     display: flex;
                     .table1_4 {
@@ -307,7 +304,7 @@
                    .front_table_5_6 {
                         width: 230px;
                         height: 89%;
-                        background-color: #000a34;
+                        background-color: #ffffff;
                         box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
                         padding-top: 2%;
                         .table5_6 {
@@ -328,7 +325,7 @@
                        .front_table_7 {
                             width: 100%;
                             height: 44px;
-                            background-color: #000a34;
+                            background-color: #ffffff;
                             box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
                             padding-top: 18px;
                             .table7 {
@@ -364,6 +361,7 @@
                                     margin-top: 24px;
                                     margin-left: 35px;
                                     border-radius: 3px;
+                                    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
                                     p {
                                         font-size: 19px;
                                         color: #2f3238;
@@ -385,7 +383,7 @@
                 .back_table_8_10 {
                     width: 230px;
                     height: 100%;
-                    background-color: #000a34;
+                    background-color: #ffffff;
                     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
                     .table8_10{
                         width: 156px;
@@ -405,7 +403,7 @@
                     .back_table_11_16 {
                         width: 660px;
                         height: 100%;
-                        background-color: #000a34;
+                        background-color: #ffffff;
                         float: right;
                         box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
                         .back_table_11_13 {
@@ -429,7 +427,7 @@
                                 height: 96px;
                                 border-radius: 50%;
                                 margin: 5% auto 0;
-                                background-color: #000a34;
+                                background-color: #ffffff;
                                 box-shadow: none;
                             }
                         }
@@ -555,6 +553,9 @@
                                     white-space: nowrap;
                                     p {
                                         text-align: left;
+                                    }
+                                    span {
+                                        display: none;
                                     }
 
                                 }
@@ -753,7 +754,6 @@
                     }
                 }
             }
-
         }
         
         // オプションを追加するページ

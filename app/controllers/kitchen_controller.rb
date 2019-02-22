@@ -76,6 +76,12 @@ class KitchenController < ApplicationController
                     hash[:number] = order.number
                     hash[:state] = order.state
                     time = order.created_at.strftime("%H:%M")
+                    
+                    if order.menu_id then
+                        hash[:menu_id] = order.menu_id
+                    else
+                        hash[:menu_id] = 0
+                    end
 
                     # viewに表示させるために必要↓
                     if order.menu_id then

@@ -2,27 +2,27 @@
     <div class="kitchen_background">
         <header class="kitchen_header clearfix">
             <div class="kitchen_header_left">
-                <div class="kitchen_button orange">
+                <div class="kitchen_button">
                     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
                 </div>
             </div>
             <div class="kitchen_button_right">
-                <div class="kitchen_button orange">
+                <div class="kitchen_button">
                     <a href="/kitchen/table">
                         <p>テーブル</p>
                     </a>
                 </div>
-                <div class="kitchen_button">
+                <div class="kitchen_button blue">
                     <a href="/kitchen/ordered">
                         <p>調理待</p>
                     </a>
                 </div>
-                <div class="kitchen_button orange">
+                <div class="kitchen_button">
                     <a href="/kitchen/option_change">
                         <p>注文変更</p>
                     </a>
                 </div>
-                <div class="kitchen_button orange">
+                <div class="kitchen_button">
                     <a href="/kitchen/notification">
                         <p>通知一覧</p>
                     </a>
@@ -85,6 +85,7 @@
                                             <% else %>
                                                 <p>　<%= order2[:option_name] %></p>
                                             <% end %>
+                                            <span><%= order2[:menu_id] %></span>
                                         </div>
                                         <div class="forcook_menu_indiv_number">
                                             <p><%= order2[:number] %></p>
@@ -92,7 +93,6 @@
                                         <div class="forcook_menu_indiv_state">
                                             <div class="cancel">
                                                 <%= link_to '×', forcook_destroy_path(order2[:order_id]), method: :delete %>
-                                                <!--<p>×</p>-->
                                             </div>
                                             <div class="cooked">
                                                 <%= link_to '調理済', change_to_cooked_path(order2[:order_id]), method: :post %>
@@ -101,7 +101,6 @@
                                             <div class="served">
                                                 <%= link_to '提供済', change_to_served_path(order2[:order_id]), method: :post %>
                                             </div>
-                                            
                                         </div>
                                     </div>
                                     <% end %>

@@ -86,7 +86,7 @@
                         </div>
                         <!--paramsに配列を渡す-->
                         <%= f.hidden_field(:id, name: "orderlist[][#{[:id]}]", value: order[:order_id]) %>
-                        <%= f.hidden_field(:number, name: "orderlist[][#{[:number]}]", value: order[:number], :class=>"orderlist_number_value") %>
+                        <%= f.hidden_field(:number, name: "orderlist[][#{[:number]}]", value: order[:number], :class => "orderlist_number_value") %>
                                                                                                             <!--このclassはjqueryでvalueを変えるためのもの-->
                         <%= f.hidden_field(:state, name: "orderlist[][#{[:state]}]", value: order[:state]) %>
 

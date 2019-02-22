@@ -104,6 +104,7 @@ class OrderlistController < ApplicationController
     end
     # モーダル「カートへ」のcreate
     def order_create
+        # binding.pry
         # メニュー価格の呼び出し
         menu = Menu.find(orderlist_params[:menu_id])
         menu_price = menu.price
@@ -161,15 +162,15 @@ class OrderlistController < ApplicationController
         end
         @orderlist = Orderlist.new
     end
-    
     # 未確定のものを確定にする部分
     def post_order
         # paramsの配列を変数へ
-        preorderlist = params[:orderlist]
-        
+        preorderlist = post_order_params[:orderlist]
+        # preorderlist = params[:orderlist]
+        # binding.pry
+
         # 配列をeach文にかける
         preorderlist.each do |pre|
-            
             # ↓オーダーのidを取り出す
             number = pre[":id"]
             # ↓文字列になっているため、数字にする
@@ -185,11 +186,12 @@ class OrderlistController < ApplicationController
                 orderlist.state = pre[":state"]
                 # 上書き保存
                 orderlist.save
+                
             end
         end
         
         # notificationテーブルに新しい注文が入ったことを知らせる
-        Notification.create(table_id: current_user.id, 	state: 3)
+        Notification.create(table_id: current_user.id, state: 3)
 
         redirect_to order_top_path
         flash[:notice] = "something"
@@ -277,11 +279,13 @@ class OrderlistController < ApplicationController
         flash[:error] = "something"
     end
 
-
-
-    private
+private
     def orderlist_params
         params.require(:orderlist).permit(:number, :option_id, :menu_id)
+    end
+    
+    def post_order_params
+        params.permit(orderlist:[":id", ":number", ":state"])
     end
 
     # サインインしてなかったらアクセスできないようにする
