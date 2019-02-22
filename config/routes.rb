@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     # get 'api/test' => 'orderlist#test'
     get 'firstpage' => 'orderlist#first'
 
-    # 各メニューページ 
+    # オーダーページ
+      # 各メニューページ 
     get 'order/top' => 'orderlist#top_page'
     get 'order/set_menu' => 'orderlist#set_menu'
     get 'order/alacarte_menu' => 'orderlist#alacarte'
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
     post 'order/cashier' => 'orderlist#call_cashier'
     post 'order/staff' => 'orderlist#call_staff'
 
-    # 注文確認ページ
+      # 注文確認ページ
     get 'order/pre_order/:id' => 'orderlist#pre_order'
     post 'order/pre_order' => 'orderlist#post_order'
     get 'order/ordered/:id' => 'orderlist#ordered'
@@ -47,4 +48,9 @@ Rails.application.routes.draw do
       # オプション追加一覧
     get 'kitchen/option_change' => 'kitchen#option_change'
     post 'kitchen/option_change' => 'kitchen#post_option'
+    
+    # 会計ページ
+    get 'cashier/table' => 'cashier#table_cashier'
+    get 'cashier/:id' => 'cashier#check_page'
+    post 'cashier/paid' => 'cashier#paid'
 end

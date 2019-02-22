@@ -29,7 +29,12 @@ $(document).on('turbolinks:load', function() {
           modal_bg = $(modal).filter("#modal_bg");
           modal_menu = $(modal).filter("#modal_menu_indiv");
           modal_close = $(modal).filter("#modal_close");
-
+          
+          // ダブルクリックすると画面がフリーズするので、
+          // それを防ぐために、appendする前に、removeさせる
+          $("#modal_bg").remove();
+          $("#modal_menu_indiv").remove();
+          
           $("body").append(modal_bg);
           $("body").append(modal_menu);
           $("body").append(modal_close);
@@ -53,7 +58,6 @@ $(document).on('turbolinks:load', function() {
           });
         }
     });
-
   });
 })  
 
