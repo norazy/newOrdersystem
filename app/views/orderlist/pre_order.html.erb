@@ -63,6 +63,14 @@
                                     ＋    
                                     </div>
                                 </div>
+                                <div class="preorder_delete">
+                                    <div class="preorder_destroy">
+                                        <div class="preorder_destroy_btn">
+                                            <%= link_to '×', delete_preorder_path(order[:order_id]), method: :delete %>
+                                        </div>
+                                    </div>
+                                </div>
+
                             <% else %>
                                 <div class="preorder_menu_name">
                                     <p>　<%= order[:option_name] %></p>
@@ -80,6 +88,13 @@
                                 <div class="preorder_menu_plus">
                                     <div class="plus_btn">
                                     ＋    
+                                    </div>
+                                </div>
+                                <div class="preorder_delete">
+                                    <div class="preorder_destroy">
+                                        <div class="preorder_destroy_btn">
+                                            <%= link_to '×', delete_preorder_path(order[:order_id]), method: :delete %>
+                                        </div>
                                     </div>
                                 </div>
                             <% end %>

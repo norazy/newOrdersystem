@@ -9,8 +9,16 @@
                     <ul class="top_page_nav_ul">
                         <li class="top_page_nav_li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                         <li class="top_page_nav_li"><%= link_to "メニュー", firstpage_path, method: :get %></li>
-                        <li class="top_page_nav_li"><a href="#">中国語</a></li>
-                        <li class="top_page_nav_li"><a href="#">English</a></li>
+                        <li class="top_page_nav_li">
+                            <%= link_to('中国語', :locale => 'zh') %>
+
+                            <!--<2%= link_to('中国語', i18n_url_for(params.merge(locale: :zh))) %>-->
+                            <!--<a href="#">中国語</a>-->
+                        </li>
+                        <li class="top_page_nav_li">
+                            <%= link_to('English', :locale => 'en') %>
+                            <!--<a href="#">English</a>-->
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -76,3 +84,13 @@
 <% if flash[:notice].present? %>
     <div id="toasts">ご注文承りました！</div>
 <% end %>
+
+                          <!--<2% if I18n.locale.to_s == "jp" %>-->
+                          <!--  <2%= link_to('中国語', :locale => 'zh') %>-->
+                          <!--<2% elsif I18n.locale.to_s == "zh" %>-->
+                          <!--  <2%= link_to('日本語', :locale => 'ja') %>-->
+                          <!--<2% elsif I18n.locale.to_s == "en" %>-->
+                          <!--  <2%= link_to('日本語', :locale => 'ja') %>-->
+                          <!--<2% else %>-->
+                          <!--  <2%= link_to('中国語', :locale => 'zh') %>-->
+                          <!--<2% end %>-->

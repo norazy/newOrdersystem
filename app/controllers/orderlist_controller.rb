@@ -162,12 +162,17 @@ class OrderlistController < ApplicationController
         end
         @orderlist = Orderlist.new
     end
+    # 未確定の削除
+    def delete_preorder
+        orderlist = Orderlist.find(params[:id])
+        orderlist.destroy if orderlist.user_id = current_user.id
+        # サインインしてがメニューを注文した人なら、削除する
+        redirect_back(fallback_location: root_path)
+    end
     # 未確定のものを確定にする部分
     def post_order
         # paramsの配列を変数へ
         preorderlist = post_order_params[:orderlist]
-        # preorderlist = params[:orderlist]
-        # binding.pry
 
         # 配列をeach文にかける
         preorderlist.each do |pre|
