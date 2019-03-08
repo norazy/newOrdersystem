@@ -1,0 +1,82 @@
+<div class="top_page_background">
+    <div class="top_page_contents">
+        <div class="top_page_nav_n_title">
+            <div class="top_page_nav">
+                <button class="top_page_nav_button" id="nav_button">
+                    <i class="fas fa-bars"><span></span></i>
+                </button>
+                <div class="top_page_nav_div" id="nav_button2">
+                    <ul class="top_page_nav_ul">
+                        <li class="top_page_nav_li"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                        <li class="top_page_nav_li"><%= link_to "Menu", firstpage_path, method: :get %></li>
+                        <li class="top_page_nav_li">
+                            <%= link_to('JP', :locale => 'ja') %>
+                        </li>
+                        <li class="top_page_nav_li">
+                            <%= link_to('CN', :locale => 'zh') %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="top_page_title">
+                <p>Welcome To Ifuen!</p>
+            </div>
+        </div>
+        <div class="top_page_menu">
+            <div class="top_page_menu_upper clearfix">
+                <ul>
+                    <li class="top_page_menu_indiv">
+                        <a href="/en/order/recommend_menu">
+                            <p>Recommend</p>
+                        </a>
+                    </li>
+                    <li class="top_page_menu_indiv">
+                        <a href="/en/order/alacarte_menu">
+                            <p>A La Carte</p>
+                        </a>
+                    </li>
+                    <li class="top_page_menu_indiv">
+                        <a href="/en/order/noodle_menu">
+                            <p>Noodle</p>
+                        </a>
+                    </li>
+                    <li class="top_page_menu_indiv">
+                        <a href="/en/order/set_menu">
+                            <p>Set Meal</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="top_page_menu_lower clearfix">
+                <ul>
+                    <li class="top_page_menu_indiv">
+                        <a href="/en/order/search">
+                            <p>Search</p>
+                        </a>
+                    </li>
+                    <li class="top_page_menu_indiv">
+                        <a href="/en/order/dessert_menu">
+                            <p class="second">Dessert<br>
+                            Soup</p>
+                        </a>
+                    </li>
+                    <li class="top_page_menu_indiv">
+                        <a href="/en/order/rice_menu">
+                            <p class="second">Rice<br>
+                            Rice Set</p>
+                        </a>
+                    </li>
+                    <li class="top_page_menu_indiv">
+                        <a href="/en/order/drink_menu">
+                            <p class="second">Drink<br>
+                            Alcohol</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<% if flash[:notice].present? %>
+    <div id="toasts">Order Accepted!</div>
+<% end %>

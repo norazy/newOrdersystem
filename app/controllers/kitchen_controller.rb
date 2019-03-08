@@ -1,7 +1,7 @@
 class KitchenController < ApplicationController
     # サインインしているかどうかのチェック
     before_action :move_to_signin 
-    # 権限を持っているかどうかのチェック
+    # 通知があるかどうかチェック
     before_action :check_notification, except: :notification
     # flashの中身を消す
     after_action :clear_flash
@@ -234,21 +234,16 @@ private
     # サインインしているかどうかの確認
     def move_to_signin
         if user_signed_in? then
-            check_authority
+            user = User.find(current_user.id)
+            authority = user.authority
+            
+            redirect_to firstpage_url if authority == 1 
             # サインインしてたら、権限のチェック
         else
             redirect_to new_user_session_url 
         end
     end
 
-    # 権限があるかどうかの確認
-    def check_authority
-        user = User.find(current_user.id)
-        authority = user.authority
-        
-        redirect_to firstpage_url if authority == 1 
-    end
-    
     # 通知があるかどうかの確認
     def check_notification
         # if Notification.exists?(:id => 1)

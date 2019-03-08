@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ scope '(:locale)', locale: /#{I18n.available_locales.map(&:to_s).join('|')}/ do
+
+    devise_for :users
+     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root 'orderlist#first'
     
     # get 'api/test' => 'orderlist#test'
@@ -22,8 +24,10 @@ Rails.application.routes.draw do
 
       # 注文確認ページ
     get 'order/pre_order/:id' => 'orderlist#pre_order'
+    delete 'order/pre_order/:id' => 'orderlist#delete_preorder', as: 'delete_preorder'
     post 'order/pre_order' => 'orderlist#post_order'
     get 'order/ordered/:id' => 'orderlist#ordered'
+
 
     get 'order/modal/:id' => 'orderlist#modal', as: 'order_indiv'
     post 'order/modal_order' => 'orderlist#order_create'
@@ -53,4 +57,11 @@ Rails.application.routes.draw do
     get 'cashier/table' => 'cashier#table_cashier'
     get 'cashier/:id' => 'cashier#check_page'
     post 'cashier/paid' => 'cashier#paid'
+    
+    # 統計ページ
+    get 'statistics/sales' => 'statistics/sales'
+    get 'statistics/ranking' => 'statistics/ranking'
+    delete 'statistics/delete_data' => 'statistics/delete_data', as: 'ranking_data_destroy'
+    get 'statistics/csv' => 'statistics/csv'
+  end  
 end

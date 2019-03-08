@@ -3,65 +3,65 @@
         <header class="menu_header clearfix">
             <div class="menu_header_left">
                 <div class="menu_button orange">
-                    <a href="/order/top">
-                        <p>トップへ</p>
+                    <a href="/zh/order/top">
+                        <p>回首页</p>
                     </a>
                 </div>
             </div>
             <div class="menu_button_right">
                 <div class="menu_button orange">
                     <%= link_to order_cashier_path, :method => :post do %>
-                        <p>会計</p>
+                        <p>结账</p>
                  	<%end%>
                 </div>
                 <div class="menu_button orange">
                     <%= link_to order_staff_path, :method => :post do %>
-                        <p>呼出</p>
+                        <p>呼叫</p>
                  	<%end%>
                 </div>
                 <div class="menu_button orange">
-                    <a href="/order/pre_order/<%= current_user.id %>">
-                        <p>未確定</p>
+                    <a href="/zh/order/pre_order/<%= current_user.id %>">
+                        <p>购物车</p>
                     </a>
                 </div>
                 <div class="menu_button orange">
-                    <a href="/order/ordered/<%= current_user.id %>">
-                        <p>注文済</p>
+                    <a href="/zh/order/ordered/<%= current_user.id %>">
+                        <p>已下单</p>
                     </a>
                 </div>
             </div>
         </header>
         <div class="menu_category">
-                <div class="menu_button">
-                    <a href="/order/set_menu">
-                        <p>セット</p>
-                    </a>
-                </div>
-                <div class="menu_button">
-                    <a href="/order/alacarte_menu">
-                        <p>一品料理</p>
-                    </a>
-                </div>
-                <div class="menu_button">
-                    <a href="/order/noodle_menu">
-                        <p>麺類</p>
-                    </a>
-                </div>
-                <div class="menu_button orange">
-                    <a href="/order/rice_menu">
-                        <p>ご飯・定食</p>
-                    </a>
-                </div>
-                <div class="menu_button">
-                    <a href="/order/dessert_menu">
-                        <p class="double2">デザート<br>スープ</p>
-                    </a>
-                </div>
-                <div class="menu_button">
-                    <a href="/order/drink_menu">
-                        <p>ドリンク</p>
-                    </a>
-                </div>
+            <div class="menu_button">
+                <a href="/zh/order/set_menu">
+                    <p>套餐</p>
+                </a>
+            </div>
+            <div class="menu_button">
+                <a href="/zh/order/alacarte_menu">
+                    <p>单品菜</p>
+                </a>
+            </div>
+            <div class="menu_button">
+                <a href="/zh/order/noodle_menu">
+                    <p>面类</p>
+                </a>
+            </div>
+            <div class="menu_button orange">
+                <a href="/zh/order/rice_menu">
+                    <p>米饭类</p>
+                </a>
+            </div>
+            <div class="menu_button">
+                <a href="/zh/order/dessert_menu">
+                    <p class="double2">甜品<br>汤类</p>
+                </a>
+            </div>
+            <div class="menu_button">
+                <a href="/zh/order/drink_menu">
+                    <p>饮料</p>
+                </a>
+            </div>
         </div>
         <div class="menu_indiv2 clearfix">
             <div class="category11">
