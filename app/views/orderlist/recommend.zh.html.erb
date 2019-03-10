@@ -21,7 +21,7 @@
                 </div>
                 <div class="menu_button orange">
                     <a href="/zh/order/pre_order/<%= current_user.id %>">
-                        <p>购物车</p>
+                        <p>订单</p>
                     </a>
                 </div>
                 <div class="menu_button orange">
@@ -70,7 +70,7 @@
         <div class="menu_category2">
             <ul>
                 <li id="category11" class="selected">
-                    <p>热情推荐</p>
+                    <p>点单排行</p>
                 </li>
                 <li id="category12">
                     <p>新品上市</p>
@@ -87,7 +87,7 @@
                         <div class="menu_indiv_block2">
                             <%= image_tag "#{menu.image}" %>
                             <div class="menu_indiv_name">
-                                <%= menu.name %>
+                                <%= menu.name_zh %>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                         <div class="menu_indiv_block2">
                             <%= image_tag "#{menu.image}" %>
                             <div class="menu_indiv_name">
-                                <%= menu.name %>
+                                <%= menu.name_zh %>
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                         <div class="menu_indiv_block2">
                             <%= image_tag "#{menu.image}" %>
                             <div class="menu_indiv_name">
-                                <%= menu.name %>
+                                <%= menu.name_zh %>
                             </div>
                         </div>
                     </div>

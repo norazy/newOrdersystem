@@ -1,6 +1,6 @@
 class OrderlistController < ApplicationController
     # ↓サインインしているかどうかの確認
-    before_action :move_to_signin 
+    before_action :move_to_signin
     # def test
     #     render json: Orderlist.where(user_id: current_user.id)
     # end
@@ -150,13 +150,17 @@ class OrderlistController < ApplicationController
             if order.menu_id then
                 number = order.menu_id
                 menu = Menu.find(number)
-                name = menu.name
-                hash[:menu_name] = name
+                hash[:menu_name] = menu.name
+                # 中国語と英語のメニューも呼び出している
+                hash[:menu_name_zh] = menu.name_zh
+                hash[:menu_name_en] = menu.name_en
             else
                 number2 = order.option_id
                 option = Optiontable.find(number2)
-                name2 = option.name_opt
-                hash[:option_name] = name2
+                # name2 = option.name_opt
+                hash[:option_name] = option.name_opt
+                hash[:option_name_zh] = option.name_opt_zh
+                hash[:option_name_en] = option.name_opt_en
             end
             @preorder << hash
         end
@@ -189,9 +193,10 @@ class OrderlistController < ApplicationController
                 orderlist.number = pre[":number"]
                 # 状態の書き換え
                 orderlist.state = pre[":state"]
+                orderlist.ordered_time = DateTime.current
+                # binding.pry
                 # 上書き保存
                 orderlist.save
-                
             end
         end
         
@@ -247,21 +252,30 @@ class OrderlistController < ApplicationController
             if order.menu_id then
                 number = order.menu_id
                 menu = Menu.find(number)
-                name = menu.name
-                hash[:menu_name] = name
+                hash[:menu_name] = menu.name
+                # 中国語と英語のメニューも呼び出している
+                hash[:menu_name_zh] = menu.name_zh
+                hash[:menu_name_en] = menu.name_en
             else
                 number2 = order.option_id
                 option = Optiontable.find(number2)
-                name2 = option.name_opt
-                hash[:option_name] = name2
+                hash[:option_name] = option.name_opt
+                hash[:option_name_zh] = option.name_opt_zh
+                hash[:option_name_en] = option.name_opt_en
             end
             
             if order.state == 1 then
                 hash[:state] = "注文済"
+                hash[:state_zh] = "已下单"
+                hash[:state_en] = "Ordered"
             elsif order.state == 2 then
                 hash[:state] = "調理中"
+                hash[:state_zh] = "炒菜中"
+                hash[:state_en] = "Cooking"
             else
                 hash[:state] = "届済み"
+                hash[:state_zh] = "已上菜"
+                hash[:state_en] = "Served"
             end    
             
             @ordered << hash

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_15_081228) do
+ActiveRecord::Schema.define(version: 2019_03_09_100748) do
 
   create_table "cashiers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "total", null: false
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_02_15_081228) do
     t.text "name_en"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "detail_zh"
+    t.text "detail_en"
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,6 +48,8 @@ ActiveRecord::Schema.define(version: 2019_02_15_081228) do
     t.integer "price_opt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "name_opt_zh"
+    t.text "name_opt_en"
   end
 
   create_table "orderlists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_02_15_081228) do
     t.integer "option_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "ordered_time"
   end
 
   create_table "recommends", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

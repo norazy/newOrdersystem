@@ -15,8 +15,13 @@ class CashierController < ApplicationController
                 eachtable = Orderlist.where(user_id: number).where.not(:state => 4)
 
                 # 状態が１のオーダーがあったら
-                if eachtable.exists?(:state => 0 || 1 || 2)
+                # if eachtable.exists?(:state => 0 || 1 || 2)
+                if eachtable.exists?(:state => 0)
                     # 未注文のものも入れて検索する
+                    color = 1
+                elsif eachtable.exists?(:state => 1)
+                    color = 1
+                elsif eachtable.exists?(:state => 2)
                     color = 1
                 elsif eachtable.exists?(:state => 3)
                     color = 2
@@ -50,13 +55,13 @@ class CashierController < ApplicationController
             if order.menu_id then
                 number = order.menu_id
                 menu = Menu.find(number)
-                name = menu.name
-                hash[:menu_name] = name
+                hash[:menu_name] = menu.name
+                hash[:menu_name_zh] = menu.name_zh
             else
                 number2 = order.option_id
                 option = Optiontable.find(number2)
-                name2 = option.name_opt
-                hash[:option_name] = name2
+                hash[:option_name] = option.name_opt
+                hash[:option_name_zh] = option.name_opt_zh
             end
             @forcheck << hash
         end

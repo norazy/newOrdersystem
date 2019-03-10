@@ -3,7 +3,7 @@
         <header class="kitchen_header clearfix">
             <div class="kitchen_header_left">
                 <div class="kitchen_button">
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                    <%= link_to "退出登录", destroy_user_session_path, method: :delete %>
                 </div>
                 <div class="kitchen_nav">
                     <button class="kitchen_nav_button" id="kitchen_nav_button">
@@ -11,10 +11,10 @@
                     </button>
                     <div class="kitchen_nav_div" id="kitchen_nav_button2">
                         <ul class="kitchen_nav_ul">
-                            <li class="kitchen_nav_li"><%= link_to "メニュー", firstpage_path, method: :get %></li>
-                            <li class="kitchen_nav_li"><a href="/kitchen/served">注文一覧</a></li>
+                            <li class="kitchen_nav_li"><%= link_to "回首页", firstpage_path, method: :get %></li>
+                            <li class="kitchen_nav_li"><a href="/zh/kitchen/served">订单情况</a></li>
                             <li class="kitchen_nav_li">
-                                <%= link_to('中国語', :locale => 'zh') %>
+                                <%= link_to('日语', :locale => 'ja') %>
                             </li>
                         </ul>
                     </div>
@@ -22,23 +22,23 @@
             </div>
             <div class="kitchen_button_right">
                 <div class="kitchen_button blue">
-                    <a href="/kitchen/table">
-                        <p>テーブル</p>
+                    <a href="/zh/kitchen/table">
+                        <p>座位</p>
                     </a>
                 </div>
                 <div class="kitchen_button">
-                    <a href="/kitchen/ordered">
-                        <p>調理待</p>
+                    <a href="/zh/kitchen/ordered">
+                        <p>等菜中</p>
                     </a>
                 </div>
                 <div class="kitchen_button">
-                    <a href="/kitchen/option_change">
-                        <p>注文変更</p>
+                    <a href="/zh/kitchen/option_change">
+                        <p>改菜单</p>
                     </a>
                 </div>
                 <div class="kitchen_button">
-                    <a href="/kitchen/notification">
-                        <p>通知一覧</p>
+                    <a href="/zh/kitchen/notification">
+                        <p>呼叫详细</p>
                     </a>
                 </div>
             </div>
@@ -85,13 +85,13 @@
                         <div class="front_table_guide clearfix">
                             <div class="guide">
                                 <div class="guide_indiv gray">
-                                    <p>無人</p>
+                                    <p>空闲</p>
                                 </div>                                
                                 <div class="guide_indiv green">
-                                    <p>注文待</p>
+                                    <p>就餐中</p>
                                 </div>                                
                                 <div class="guide_indiv blue2">
-                                    <p>調理待</p>
+                                    <p>等菜中</p>
                                 </div>                                
                             </div>
                         </div>
