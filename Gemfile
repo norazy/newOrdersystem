@@ -70,3 +70,7 @@ gem 'hirb'
 gem 'hirb-unicode'
 gem 'devise'
 gem 'rails-i18n', '~> 5.1'
+
+group :production do
+  gem 'rails_12factor'
+end
