@@ -21,7 +21,7 @@
                 </div>
                 <div class="menu_button orange">
                     <a href="/zh/order/pre_order/<%= current_user.id %>">
-                        <p>购物车</p>
+                        <p>订单</p>
                     </a>
                 </div>
                 <div class="menu_button orange">
@@ -73,7 +73,7 @@
                     <p>人气套餐</p>
                 </li>
                 <li id="category12">
-                    <p class="double">午餐/<br>轻餐</p>
+                    <p class="double">午餐/<br>简餐</p>
                 </li>
                 <li id="category13">
                     <p>特色套餐</p>
@@ -89,7 +89,7 @@
                             <!--<2%= link_to (order_indiv_url(menu.id)), remote: true do %>-->
                                 <%= image_tag "#{menu.image}" %>
                                 <div class="menu_indiv_name">
-                                    <%= menu.name %>
+                                    <%= menu.name_zh %>
                                 </div>
                                 
                             <!--<2%end%>-->
@@ -104,7 +104,7 @@
                             <div class="menu_indiv_block2">
                                 <%= image_tag "#{menu.image}" %>
                                 <div class="menu_indiv_name">
-                                    <%= menu.name %>
+                                    <%= menu.name_zh %>
                                 </div>
                             </div>
                         <!--<2%end%>                            -->
@@ -118,7 +118,7 @@
                             <div class="menu_indiv_block2">
                                 <%= image_tag "#{menu.image}" %>
                                 <div class="menu_indiv_name">
-                                    <%= menu.name %>
+                                    <%= menu.name_zh %>
                                 </div>
                             </div>
                         <!--<2%end%>-->

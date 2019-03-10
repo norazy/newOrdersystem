@@ -18,8 +18,17 @@ window.addEventListener('turbolinks:load', function() {
 // モーダルの呼び出し
 $(document).on('turbolinks:load', function() {
   $(".menu_indiv_block").click(function(event){
+    // if ($('body').hasClass("zh")) {
+    //   lang = "zh"
+    // } else if ($('body').hasClass("en")){
+    //   lang = "en"
+    // } else {
+    //     lang = "ja"  
+    // }
     var id = $(this).attr('menuid')
-    var url = '/order/modal/' + id
+    var url ='/order/modal/' + id;
+    // var url = lang + '/order/modal/' + id;
+      // console.log(url);
     
     $.ajax({
         url: url,
@@ -58,8 +67,9 @@ $(document).on('turbolinks:load', function() {
           });
         }
     });
+
   });
-})  
+});  
 
 // 未確定メニューの数量変更　マイナス
 $(document).on('turbolinks:load', function() {

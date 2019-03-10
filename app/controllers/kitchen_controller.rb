@@ -45,6 +45,9 @@ class KitchenController < ApplicationController
         # 全オーダーから状態が1,2のオーダーを取り出す
         # さらにusr_idごとにグループ化して、それぞれの一番最初のデータを取り出す
         groupdata = Orderlist.where(:state => [1, 2]).group(:user_id)
+        # テーブルの順番を逆から並べる場合 
+        # groupdata = Orderlist.where(:state => [1, 2]).group(:user_id).order('user_id DESC')
+        
         # それぞれのユーザーの一番最初のレコードをeachにかける
         # それぞれのuser_idを取り出して、
         # テーブル番号を入れる変数に追加する
@@ -75,7 +78,7 @@ class KitchenController < ApplicationController
                     hash[:order_id] = order.id
                     hash[:number] = order.number
                     hash[:state] = order.state
-                    time = order.created_at.strftime("%H:%M")
+                    time = order.ordered_time.strftime("%H:%M")
                     
                     if order.menu_id then
                         hash[:menu_id] = order.menu_id
@@ -87,13 +90,13 @@ class KitchenController < ApplicationController
                     if order.menu_id then
                         number = order.menu_id
                         menu = Menu.find(number)
-                        name = menu.name
-                        hash[:menu_name] = name
+                        hash[:menu_name] = menu.name
+                        hash[:menu_name_zh] = menu.name_zh
                     else
                         number2 = order.option_id
                         option = Optiontable.find(number2)
-                        name2 = option.name_opt
-                        hash[:option_name] = name2
+                        hash[:option_name] = option.name_opt
+                        hash[:option_name_zh] = option.name_opt_zh
                     end
                     table_order2 << hash
                 end
@@ -173,21 +176,24 @@ class KitchenController < ApplicationController
                     if order.menu_id then
                         number = order.menu_id
                         menu = Menu.find(number)
-                        name = menu.name
-                        hash[:menu_name] = name
+                        hash[:menu_name] = menu.name
+                        hash[:menu_name_zh] = menu.name_zh
                     else
                         number2 = order.option_id
                         option = Optiontable.find(number2)
-                        name2 = option.name_opt
-                        hash[:option_name] = name2
+                        hash[:option_name] = option.name_opt
+                        hash[:option_name_zh] = option.name_opt_zh
                     end
 
                     if order.state == 1 then
                         hash[:state] = "注文済"
+                        hash[:state_zh] = "已下单"
                     elsif order.state == 2 then
                         hash[:state] = "調理中"
+                        hash[:state_zh] = "炒菜中"
                     else
                         hash[:state] = "届済み"
+                        hash[:state_zh] = "已上菜"
                     end
 
                     table_order2 << hash
@@ -224,7 +230,8 @@ class KitchenController < ApplicationController
         # オプション価格の呼び出し
         option = Optiontable.find(option_params[:option_id])
         option_price = option.price_opt
-        Orderlist.create(user_id: option_params[:user_id], option_id: option_params[:option_id], price: option_price, number: option_params[:number], state: "1")
+        time = DateTime.current
+        Orderlist.create(user_id: option_params[:user_id], option_id: option_params[:option_id], price: option_price, number: option_params[:number], state: "1", ordered_time: time)
 
         redirect_back(fallback_location: root_path)
     end

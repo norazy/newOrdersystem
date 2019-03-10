@@ -23,12 +23,13 @@ body {
 }
 
 .zh {
-    /*font-family: 'Noto Sans SC', sans-serif;*/
-    /*font-family: 'ZCOOL KuaiLe', cursive;*/
     font-family: 'ZCOOL XiaoWei', serif;
+/*font-family: 'Noto Sans SC', sans-serif;*/
+/*見やすいけど下に下がってる*/
+/*font-family: 'ZCOOL KuaiLe', cursive;*/
+
 }
 
 .en {
-    /*font-family: 'Ubuntu', sans-serif;*/
     font-family: 'Ubuntu Condensed', sans-serif;
 }
