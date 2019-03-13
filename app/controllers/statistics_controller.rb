@@ -68,6 +68,12 @@ class StatisticsController < ApplicationController
 
         redirect_back(fallback_location: root_path)
     end
+    
+    def add_menu
+        @menu = Menu.new
+    end
+    def post_menu
+    end
 
 private
     # 月のランキングを呼び出すメソッド

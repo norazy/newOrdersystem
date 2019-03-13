@@ -18,15 +18,14 @@ window.addEventListener('turbolinks:load', function() {
 // モーダルの呼び出し
 $(document).on('turbolinks:load', function() {
   $(".menu_indiv_block").click(function(event){
-    // if ($('body').hasClass("zh")) {
-    //   lang = "zh"
-    // } else if ($('body').hasClass("en")){
-    //   lang = "en"
-    // } else {
-    //     lang = "ja"  
-    // }
+    var lang = ""
+    if ($('body').hasClass("zh")) {
+      lang = "/zh"
+    } else if ($('body').hasClass("en")){
+      lang = "/en"
+    }
     var id = $(this).attr('menuid')
-    var url ='/order/modal/' + id;
+    var url =  lang + '/order/modal/' + id;
     // var url = lang + '/order/modal/' + id;
       // console.log(url);
     
@@ -80,7 +79,7 @@ $(document).on('turbolinks:load', function() {
     // 文字列を数値にする↓
     letter = parseInt(letter);
 
-    if (letter >= 1) {
+    if (letter >= 2) {
         var letter2 = letter - 1
         $(".preorder_menu_number2 p").eq(number).html(letter2);
         $(".orderlist_number_value").eq(number).val(letter2);

@@ -59,9 +59,13 @@ Rails.application.routes.draw do
     post 'cashier/paid' => 'cashier#paid'
     
     # 統計ページ
-    get 'statistics/sales' => 'statistics/sales'
-    get 'statistics/ranking' => 'statistics/ranking'
-    delete 'statistics/delete_data' => 'statistics/delete_data', as: 'ranking_data_destroy'
-    get 'statistics/csv' => 'statistics/csv'
+    get 'statistics/sales' => 'statistics#sales'
+    get 'statistics/ranking' => 'statistics#ranking'
+    delete 'statistics/delete_data' => 'statistics#delete_data', as: 'ranking_data_destroy'
+    get 'statistics/csv' => 'statistics#csv'
+    
+    # メニュー追加
+    get 'statistics/addmenu' => 'statistics#add_menu'
+    post 'statistics/addmenu' => 'statistics/post_menu'
   end  
 end

@@ -17,13 +17,13 @@
                     <p><%= @menu.name_zh %></p>
                 </div>
                 <div class="modal_menu_price">
-                    <p><%= @menu.price %>日元</p>
+                    <p>JPY <%= @menu.price %></p>
                 </div>
             </div>
         </div>
         <div class="modal_menu_detail_n_number">
             <div class="modal_menu_detail">
-                <p><%= @menu.detail %></p>
+                <p><%= @menu.detail_zh %></p>
             </div>
             <div class="modal_menu_number_box clearfix">
                 <div class="modal_menu_number">
@@ -51,25 +51,25 @@
             <% if @option1 %>
                 <div class="modal_menu_option">
                     <%= f.radio_button(:option_id, @option1.id) %>
-                    <%= f.label(:option_id, @option_name1, value: @option1.id)  %>
+                    <%= f.label(:option_id, @option_name1_zh, value: @option1.id)  %>
                 </div>
             <% end %>
             <% if @option2 %>
                 <div class="modal_menu_option">
                     <%= f.radio_button(:option_id, @option2.id) %>
-                    <%= f.label(:option_id, @option_name2, value: @option2.id)  %>
+                    <%= f.label(:option_id, @option_name2_zh, value: @option2.id)  %>
                 </div>
             <% end %>
             <% if @option3 %>
                 <div class="modal_menu_option">
                     <%= f.radio_button(:option_id, @option3.id) %>
-                    <%= f.label(:option_id, @option_name3, value: @option3.id)  %>
+                    <%= f.label(:option_id, @option_name3_zh, value: @option3.id)  %>
                 </div>
             <% end %>
         </div>
         <div class="modal_menu_tocart" >
         <!--<div class="modal_menu_tocart", onclick="myFunction()" >-->
-            <%= f.submit '放入点菜单', class: 'tocart_button' %>
+            <%= f.submit '放入点菜单', class: 'tocart_button', style:"font-family: 'ZCOOL XiaoWei', serif;" %>
         </div>        
     </div>
     <% end %>

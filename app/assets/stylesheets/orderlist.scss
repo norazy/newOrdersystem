@@ -513,19 +513,23 @@
                 background-color: rgba(225, 225, 225, 0.8);
                 font-size: 46px;
                 color: #000000;
-                
                 .modal_menu_title{
-                    width: 70%;
+                    width: 66%;
                     height: 100%;
                     float: left;
                     text-align: left;
+                    // box-sizing: border-box;                
+
                     p {
                         margin-top: 28px;
                         margin-left: 24px;
                     }
                 }
+                .title_size {
+                    font-size: 42px;
+                }
                 .modal_menu_price {
-                    width: 30%;
+                    width: 34%;
                     height: 100%;
                     float: right;
                     text-align: right;

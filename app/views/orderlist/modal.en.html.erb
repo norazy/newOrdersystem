@@ -13,17 +13,17 @@
         <div class="modal_menu_image">
             <%= image_tag "#{@menu.image}" %>
             <div class="modal_menu_title_n_price clearfix">
-                <div class="modal_menu_title">
+                <div class="modal_menu_title title_size">
                     <p><%= @menu.name_en %></p>
                 </div>
                 <div class="modal_menu_price">
-                    <p>JPY<%= @menu.price %></p>
+                    <p>JPY <%= @menu.price %></p>
                 </div>
             </div>
         </div>
         <div class="modal_menu_detail_n_number">
             <div class="modal_menu_detail">
-                <p><%= @menu.detail %></p>
+                <p><%= @menu.detail_en %></p>
             </div>
             <div class="modal_menu_number_box clearfix">
                 <div class="modal_menu_number">
@@ -51,25 +51,25 @@
             <% if @option1 %>
                 <div class="modal_menu_option">
                     <%= f.radio_button(:option_id, @option1.id) %>
-                    <%= f.label(:option_id, @option_name1, value: @option1.id)  %>
+                    <%= f.label(:option_id, @option_name1_en, value: @option1.id)  %>
                 </div>
             <% end %>
             <% if @option2 %>
                 <div class="modal_menu_option">
                     <%= f.radio_button(:option_id, @option2.id) %>
-                    <%= f.label(:option_id, @option_name2, value: @option2.id)  %>
+                    <%= f.label(:option_id, @option_name2_en, value: @option2.id)  %>
                 </div>
             <% end %>
             <% if @option3 %>
                 <div class="modal_menu_option">
                     <%= f.radio_button(:option_id, @option3.id) %>
-                    <%= f.label(:option_id, @option_name3, value: @option3.id)  %>
+                    <%= f.label(:option_id, @option_name3_en, value: @option3.id)  %>
                 </div>
             <% end %>
         </div>
         <div class="modal_menu_tocart" >
         <!--<div class="modal_menu_tocart", onclick="myFunction()" >-->
-            <%= f.submit 'To Cart', class: 'tocart_button' %>
+            <%= f.submit 'To Cart', class: 'tocart_button', style: "font-family: 'Ubuntu Condensed', sans-serif;" %>
         </div>        
     </div>
     <% end %>

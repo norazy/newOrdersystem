@@ -48,6 +48,8 @@ class OrderlistController < ApplicationController
     # 検索ページ
     def search
         @menus1 = Menu.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+        @menus_en = Menu.where('name_en LIKE(?)', "%#{params[:keyword]}%").limit(20)
+        @menus_zh = Menu.where('name_zh LIKE(?)', "%#{params[:keyword]}%").limit(20)
     end
     
     # おすすめ商品
@@ -85,16 +87,22 @@ class OrderlistController < ApplicationController
             number = @menu.option1
             @option1 = Optiontable.find(number)
             @option_name1 = @option1.name_opt
+            @option_name1_zh = @option1.name_opt_zh
+            @option_name1_en = @option1.name_opt_en
         end
         if @menu.option2 then
             number = @menu.option2
             @option2 = Optiontable.find(number)
             @option_name2 = @option2.name_opt
+            @option_name2_zh = @option2.name_opt_zh
+            @option_name2_en = @option2.name_opt_en
         end
         if @menu.option3 then
             number = @menu.option3
             @option3 = Optiontable.find(number)
             @option_name3 = @option3.name_opt
+            @option_name3_zh = @option3.name_opt_zh
+            @option_name3_en = @option3.name_opt_en
         end
         
         respond_to do |format|
