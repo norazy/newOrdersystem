@@ -8,10 +8,9 @@
                 <div class="top_page_nav_div" id="nav_button2">
                     <ul class="top_page_nav_ul">
                         <li class="top_page_nav_li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-                        <li class="top_page_nav_li"><%= link_to "メニュー", firstpage_path, method: :get %></li>
+                        <li class="top_page_nav_li"><%= link_to "メニューTOP", firstpage_path, method: :get %></li>
                         <li class="top_page_nav_li">
                             <%= link_to('中国語', :locale => 'zh') %>
-
                             <!--<2%= link_to('中国語', i18n_url_for(params.merge(locale: :zh))) %>-->
                             <!--<a href="#">中国語</a>-->
                         </li>
