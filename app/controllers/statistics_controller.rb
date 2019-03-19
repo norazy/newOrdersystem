@@ -69,13 +69,22 @@ class StatisticsController < ApplicationController
         redirect_back(fallback_location: root_path)
     end
     
+    # メニュー追加画面
     def add_menu
         @menu = Menu.new
     end
+    # 記入したメニューの保存
     def post_menu
+        Menu.create(category: menu_params[:category], name: menu_params[:name], price: menu_params[:price], image: menu_params[:image], option1: menu_params[:option1], option2: menu_params[:option2], option3: menu_params[:option3])
+        redirect_back(fallback_location: root_path)
     end
 
 private
+    # メニュー保存のストロングパラメータ
+    def menu_params
+        params.require(:menu).permit(:category, :name, :price, :image, :option1, :option2, :option3)
+    end
+
     # 月のランキングを呼び出すメソッド
     def get_ranking(order_has_menu_id, prev_month_number, category_number)
         each_ranking = []

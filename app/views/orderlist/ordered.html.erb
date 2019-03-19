@@ -19,14 +19,17 @@
                         <p>呼出</p>
                  	<%end%>
                 </div>
-                <div class="menu_button orange">
-                    <a href="/order/pre_order/<%= current_user.id %>">
-                        <p>未確定</p>
-                    </a>
-                </div>
-                <div class="menu_button">
+                <div class="menu_button orange3">
                     <a href="#">
                         <p>注文済</p>
+                    </a>
+                </div>
+                <div class="menu_button orange">
+                    <a href="/order/pre_order/<%= current_user.id %>">
+                        <% if @cart.present? %>
+                            <div id="red_dot"></div>
+                        <% end %>
+                        <img src="/cart.png" alt="cart">
                     </a>
                 </div>
             </div>

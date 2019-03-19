@@ -67,6 +67,10 @@
             .statistics_button_right {
                 float: right;
                 display: flex;
+                .statistics_button:last-child {
+                    width: 80px;
+                }
+
             }
         }
         // 売上の部分
@@ -335,55 +339,83 @@
         }
         .add_menu_form{
             width: 700px;
-            height: 500px;
-            margin: 7% auto 0;
+            // height: 500px;
+            margin: 4% auto 0;
+
             .form_background {
-                // background-color: #f5f5dc;
-                border: 1px solid #000000;
+                background-color: #ffffff;
                 width: 100%;
-                height: 295px;
-                // background-color: #ffffff;
+                // height: 346px;
                 padding: 5% 0;
                 .add_menu_label_n_text {
-                    width: 80%;
-                    height: 70px;
-                    margin: 0 auto;
-                    display: flex;
-                    border: 1px solid #000000;
-                    .add_menu_label {
-                        // border: 1px solid #000000;
-                        width: 50%;
-                        height: 70%;
-                        margin-top: 3%;
-                        p {
-                            color: #000a34;
-                            font-weight: bold;
-                            font-size: 23px;
-                            margin: 10px 0 0 57px;
+                        width: 80%;
+                        height: 70px;
+                        margin: 0 auto;
+                        display: flex;
+                        .add_menu_label {
+                            // border: 1px solid #000000;
+                            width: 50%;
+                            height: 70%;
+                            margin-top: 3%;
+                            p {
+                                color: #000a34;
+                                font-weight: bold;
+                                font-size: 23px;
+                                margin: 10px 0 0 57px;
+                            }
+                        }
+                        .add_menu_text {
+                            // border: 1px solid #000000;
+                            width: 50%;
+                            height: 70%;
+                            margin-top: 3%;
+                            select {
+                                background-color: #ffffff;
+                                border: 2px solid #ea5317;
+                                border-radius: 5px;
+                                width: 80%;
+                                height: 48px;
+                                display: block;
+                                font-size: 19px;
+                                color: #49352a;
+                                text-indent: 10px;
+                            }
+                            input {
+                                border: 2px solid #ea5317;
+                                border-radius: 5px;
+                                width: 78%;
+                                height: 42px;
+                                display: block;
+                                font-size: 19px;
+                                color: #49352a;
+                                text-indent: 15px;
+                            }
                         }
                     }
-                    .add_menu_text {
-                        // border: 1px solid #000000;
-                        width: 50%;
-                        height: 70%;
-                        margin-top: 3%;
-                        select {
-                            // background-color: #ffffff;
-                            border: 2px solid #ea5317;
-                            border-radius: 5px;
-                            width: 80%;
-                            height: 3rem;
-                            display: block;
-                            font-size: 19px;
-                            color: #49352a;
-                            text-indent: 10px;
-                        }
+            }
+            .add_menu_submit {
+                width: 100%;
+                .add_menu_submit_button {
+                    width: 36%;
+                    margin: 9% auto 0;
+                    padding-bottom: 4%;
+                    input.add_submit {
+                        width: 100%;
+                        height: 75px;
+                        padding: 10px;
+                        display: block;
+                        font-size: 22px;
+                        color: #ffffff;
+                        background-color: #ea5317;
+                        border-radius: 10px;
+                        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
                     }
-
                 }
-
             }
         }
-        
     }
+}
+.add_menu_color {
+    background-color: #f5f5dc;
+    
 }

@@ -19,14 +19,14 @@
                         <p>呼出</p>
                  	<%end%>
                 </div>
-                <div class="menu_button">
-                    <a href="#">
-                        <p>未確定</p>
-                    </a>
-                </div>
                 <div class="menu_button orange">
                     <a href="/order/ordered/<%= current_user.id %>">
                         <p>注文済</p>
+                    </a>
+                </div>
+                <div class="menu_button orange3">
+                    <a href="#">
+                        <img src="/cart2.png" alt="cart">
                     </a>
                 </div>
             </div>
@@ -124,7 +124,9 @@
         </div>
     </div>    
 </div>
-
+<% if flash[:notice].present? %>
+    <div id="toasts">削除しました！</div>
+<% end %>
 <% if flash[:error].present? %>
     <div id="toasts">ただいまお伺いします<br><br>少々お待ちくださいませ</div>
 <% end %>

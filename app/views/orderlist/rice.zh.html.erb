@@ -20,13 +20,16 @@
                  	<%end%>
                 </div>
                 <div class="menu_button orange">
-                    <a href="/zh/order/pre_order/<%= current_user.id %>">
-                        <p>订单</p>
+                    <a href="/zh/order/ordered/<%= current_user.id %>">
+                        <p>已下单</p>
                     </a>
                 </div>
                 <div class="menu_button orange">
-                    <a href="/zh/order/ordered/<%= current_user.id %>">
-                        <p>已下单</p>
+                    <a href="/zh/order/pre_order/<%= current_user.id %>">
+                        <% if @cart.present? %>
+                            <div id="red_dot"></div>
+                        <% end %>
+                        <img src="/cart.png" alt="cart">
                     </a>
                 </div>
             </div>
@@ -47,7 +50,7 @@
                     <p>面类</p>
                 </a>
             </div>
-            <div class="menu_button orange">
+            <div class="menu_button blue3">
                 <a href="/zh/order/rice_menu">
                     <p>米饭类</p>
                 </a>

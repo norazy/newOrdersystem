@@ -1,0 +1,303 @@
+<!--最初に作ったトップページ-->
+
+<div class="top_page_background">
+    <div class="top_page_contents">
+        <div class="top_page_nav_n_title clearfix">
+            <!--<div class="menu_button_right">-->
+            <!--    <div class="menu_button">-->
+            <!--        <2%= link_to order_cashier_path, :method => :post do %>-->
+            <!--            <p>会計</p>-->
+            <!--     	<2%end%>-->
+            <!--    </div>-->
+            <!--    <div class="menu_button">-->
+            <!--        <2%= link_to order_staff_path, :method => :post do %>-->
+            <!--            <p>呼出</p>-->
+            <!--     	<2%end%>-->
+            <!--    </div>-->
+            <!--    <div class="menu_button">-->
+            <!--        <a href="/order/pre_order/<2%= current_user.id %>">-->
+            <!--            <p>未確定</p>-->
+            <!--        </a>-->
+            <!--    </div>-->
+            <!--    <div class="menu_button">-->
+            <!--        <a href="/order/ordered/<2%= current_user.id %>">-->
+            <!--            <p>注文済</p>-->
+            <!--        </a>-->
+            <!--    </div>-->
+            <!--</div>-->
+            <div class="top_page_nav">
+                <button class="top_page_nav_button" id="nav_button">
+                    <i class="fas fa-bars"><span></span></i>
+                </button>
+                <div class="top_page_nav_div" id="nav_button2">
+                    <ul class="top_page_nav_ul">
+                        <li class="top_page_nav_li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                        <li class="top_page_nav_li"><%= link_to "メニューTOP", firstpage_path, method: :get %></li>
+                        <li class="top_page_nav_li">
+                            <%= link_to('中国語', :locale => 'zh') %>
+                            <!--<2%= link_to('中国語', i18n_url_for(params.merge(locale: :zh))) %>-->
+                            <!--<a href="#">中国語</a>-->
+                        </li>
+                        <li class="top_page_nav_li">
+                            <%= link_to('English', :locale => 'en') %>
+                            <!--<a href="#">English</a>-->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--<div class="top_page_title">-->
+            <!--    <p>ご来店ありがとうございます！</p>-->
+            <!--</div>-->
+        </div>
+        <div class="top_page_menu">
+            <div class="top_page_menu_upper clearfix">
+                <ul>
+                    <li class="top_page_menu_indiv">
+                        <a href="/order/recommend_menu">
+                            <p>おすすめ</p>
+                        </a>
+                    </li>
+                    <li class="top_page_menu_indiv">
+                        <a href="/order/alacarte_menu">
+                            <p>一品料理</p>
+                        </a>
+                    </li>
+                    <li class="top_page_menu_indiv">
+                        <a href="/order/noodle_menu">
+                            <p>麺類</p>
+                        </a>
+                    </li>
+                    <li class="top_page_menu_indiv">
+                        <a href="/order/set_menu">
+                            <p>セット</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="top_page_menu_lower clearfix">
+                <ul>
+                    <li class="top_page_menu_indiv search_tab">
+                        <a href="/order/search">
+                            <p>検索</p>
+                        </a>
+                    </li>
+                    <li class="top_page_menu_indiv">
+                        <a href="/order/dessert_menu">
+                            <p class="second">デザート<br>
+                            スープ</p>
+                        </a>
+                    </li>
+                    <li class="top_page_menu_indiv">
+                        <a href="/order/rice_menu">
+                            <p class="second">ご飯<br>
+                            定食</p>
+                        </a>
+                    </li>
+                    <li class="top_page_menu_indiv">
+                        <a href="/order/drink_menu">
+                            <p class="second">ドリンク<br>
+                            アルコール</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<% if flash[:notice].present? %>
+    <div id="toasts">ご注文承りました！</div>
+<% end %>
+
+<!--css-->
+// オーダーのトップページ
+// .top_page_background{
+//     background-image: url('/ifuen3.jpg');
+//     background-size:  cover;
+//     // ↓共通部分
+//     .clearfix:after {
+//         content: "";
+//         clear: both;
+//         display: block;
+//     }
+//     ul {
+//         list-style: none;
+//         margin: 0;
+//         padding: 0;
+//     }
+//     a {
+//         text-decoration: none;
+//     }
+//     // ↓個別
+//     .top_page_contents{
+//         width: 960px;
+//         height: 720px;
+//         padding: 24px 0;
+//         margin: 0 auto;
+//         // ログアウトと言語タブの部分
+//         .top_page_nav_n_title{
+//             width: 100%;
+//             height: 344px;
+//             .menu_button_right {
+//                 float: right;
+//                 // display: flex;
+//                 width: 300px;
+//                 margin-right: 10px;
+
+//                 .menu_button {
+//                     width: 115px;
+//                     height: 56px;
+//                     margin: 6px 9px;
+//                     box-sizing: border-box;
+//                     background-color: rgba(225,225,225,0.8);
+//                     // background-color: rgba(233,78,71,0.5);
+//                     text-align: center;
+//                     border-radius: 2px;
+//                     font-size: 19px;
+//                     // box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+//                     // box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+//                     float: right;
+            
+//                     position: relative;
+            
+//                     a {
+//                         position: absolute;
+//                         top: 0;
+//                         bottom: 0;
+//                         left: 0;
+//                         right: 0;
+            
+//                         text-decoration: none;
+//                         color: #343434;
+//                         p {
+//                             margin: 19px 0;
+//                         }
+//                         .double2 {
+//                             margin: 9px 0;
+//                         }
+//                     }
+//                 }                    
+//             }
+//             .top_page_nav {
+//                 height: 88px;
+//                 padding-top: 32px;
+//                 .top_page_nav_button {
+//                     width: 48px;
+//                     padding: 6px;
+//                     border: solid 1px #ffffff;
+//                     border-radius: 5px;
+//                     cursor: pointer;
+//                     margin-left: 24px;
+//                     background-color: rgba(225,225,225,0);
+//                      i {
+//                         color: #ffffff;
+//                         font-size: 24px;
+//                     }
+//                 }
+                
+//                 #nav_button2 {
+//                     display: none;
+//                 }
+//                 .top_page_nav_div {
+//                     margin-top: 16px;
+//                     margin-left: 32px;
+//                     width: 128px;
+//                     ul {
+//                         width: 100%;
+//                         li {
+//                             border-bottom: dotted 2px #af6469;
+//                             background: #efefef;
+//                             box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+//                             height: 40px;
+//                             text-align: center;
+
+//                             position: relative;
+//                             a {
+//                                 position: absolute;
+//                                 top: 0;
+//                                 bottom: 0;
+//                                 left: 0;
+//                                 right: 0;
+//                                 font-size: 19px;
+//                                 color: #343434;
+//                                 display: block;
+//                                 padding: 10px;
+//                             }
+//                         }
+//                         li:last-child {
+//                             border-bottom: none;
+//                         }
+//                     }
+//                 }
+//             }
+//             // .top_page_title {
+//             //     margin-top: 56px;
+//             //     text-align: right;
+//             //     padding-right: 40px;
+//             //     p {
+//             //         font-size: 32px;
+//             //         color: #ffffff;
+
+//             //     }
+//             // }
+//         }
+//         // メニューへ飛ぶリンクの部分
+//         .top_page_menu {
+//             width: 100%;
+//             height: 376px;
+//             // 各リンクへ飛ぶタブ（八ヶ所）
+//             .top_page_menu_indiv {
+//                 width: 192px;
+//                 height: 120px;
+//                 margin: 16px 24px;
+//                 background-color: rgba(225,225,225,0.8);
+//                 // box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+//                 // box-shadow: 0px 0px 15px rgba(225, 225, 225, 0.5);
+//                 border-radius: 3px;
+
+//                 position: relative;
+            
+//                 a {
+//                     position: absolute;
+//                     top: 0;
+//                     bottom: 0;
+//                     left: 0;
+//                     right: 0;
+                    
+//                     p {
+//                         font-size: 32px;
+//                         color: #343434;
+//                         margin: 44px 0;
+//                         text-align: center;
+//                     }
+//                     .second{
+//                         margin: 21px 0;
+//                         line-height: 40px;
+//                     }
+//                 }
+//             }
+//             .search_tab {
+//                 // background-color: rgba(234,83,23,0.5);
+//                 background-color: rgba(233,78,71,0.5);
+
+//                     a p {
+//                         color: #e1e1e1;
+//                         // color: #e94e47;
+//                     }
+                
+//             }
+//             .top_page_menu_upper {
+//                 padding-top: 56px;
+//                 box-sizing: border-box;
+//                 li {
+//                     float: left;
+//                 }
+//             }
+//             .top_page_menu_lower {
+//                 padding-bottom: 4px;
+//                 li {
+//                     float: left;
+//                 }
+//             }
+//         }
+//     }
+// }

@@ -40,21 +40,49 @@ class KitchenController < ApplicationController
     
     # 調理待の注文一覧
     def ordered_kitchen
-        # テーブル番号を入れる配列の変数
-        tablenumber = []
         # 全オーダーから状態が1,2のオーダーを取り出す
         # さらにusr_idごとにグループ化して、それぞれの一番最初のデータを取り出す
         groupdata = Orderlist.where(:state => [1, 2]).group(:user_id)
-        # テーブルの順番を逆から並べる場合 
-        # groupdata = Orderlist.where(:state => [1, 2]).group(:user_id).order('user_id DESC')
+
+        # テーブル番号を入れる配列の変数
+        tablenumber = []
         
         # それぞれのユーザーの一番最初のレコードをeachにかける
-        # それぞれのuser_idを取り出して、
-        # テーブル番号を入れる変数に追加する
+        # そのレコードのuser_idを取り出して、テーブル番号を入れる変数に追加する
         groupdata.each do |data|
-           user_id = data.user_id
-           tablenumber << user_id
+        #   user_id = data.user_id
+        #   tablenumber << user_id
+        #   上の二行のコードをまとめる↓
+           tablenumber << data.user_id
         end
+
+        # キッチンにはオーダーの順番に並び変えたいので、
+        # テーブル番号の配列を時間順に並び替える
+
+        # 新しい空の配列を作る
+        tablenumber2 = []
+        
+        tablenumber.each do |table_id|
+            #それぞれのテーブルの最新のオーダーを取り出す
+            order = Orderlist.where(:user_id => table_id).order("ordered_time DESC").limit(1)
+            
+            # そのオーダーをした時間とテーブル番号を配列にいれ
+            each_table = []
+            each_table << order[0].ordered_time.strftime("%H:%M")
+            each_table << table_id
+            # ex. ["05:49", 1]
+            
+            # すべてのテーブルの時間と番号をさらに一つ上の配列に入れる
+            tablenumber2 << each_table
+            # ex.[["05:49", 1], ["07:53", 2], ["04:50", 3], ["17:14", 9], ["17:16", 10], ["17:18", 17], ["17:20", 19]]
+        end
+
+        # オーダー時間順に並び変えて、テーブル番号を取り出す
+        tablenumber3 = []
+        tablenumber2.sort.each do |time|
+            tablenumber3 << time[1]
+        end
+        # ex. => [3, 1, 2, 9, 10, 17, 19]
 
         # それぞれのテーブルのオーダーを入れる配列の変数を作る
         @each_table_order = []
@@ -64,7 +92,7 @@ class KitchenController < ApplicationController
         @table_id = []
 
         # ユーザー番号を一つ一つ取り出す
-        tablenumber.each do |table_id|
+        tablenumber3.each do |table_id|
             # その番号のuser_idを取り出して、かつstate=1のオーダーを全部取り出す
             table_order = Orderlist.where(:user_id => table_id).where(state: [1, 2]).order('id ASC')
                 # 取り出したオーダーにはメニューnameがないので、

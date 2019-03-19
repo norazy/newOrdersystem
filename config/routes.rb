@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     
     # get 'api/test' => 'orderlist#test'
     get 'firstpage' => 'orderlist#first'
+    # get 'toptest' => 'orderlist#top_test'
 
     # オーダーページ
       # 各メニューページ 
@@ -66,6 +67,6 @@ Rails.application.routes.draw do
     
     # メニュー追加
     get 'statistics/addmenu' => 'statistics#add_menu'
-    post 'statistics/addmenu' => 'statistics/post_menu'
+    post 'statistics/addmenu' => 'statistics#post_menu'
   end  
 end

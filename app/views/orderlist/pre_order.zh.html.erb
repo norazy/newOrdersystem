@@ -20,13 +20,13 @@
                  	<%end%>
                 </div>
                 <div class="menu_button orange">
-                    <a href="/zh/order/pre_order/<%= current_user.id %>">
-                        <p>订单</p>
-                    </a>
-                </div>
-                <div class="menu_button orange">
                     <a href="/zh/order/ordered/<%= current_user.id %>">
                         <p>已下单</p>
+                    </a>
+                </div>
+                <div class="menu_button orange3">
+                    <a href="/zh/order/pre_order/<%= current_user.id %>">
+                        <img src="/cart2.png" alt="cart">
                     </a>
                 </div>
             </div>
@@ -124,7 +124,9 @@
         </div>
     </div>    
 </div>
-
+<% if flash[:notice].present? %>
+    <div id="toasts">已取消。</div>
+<% end %>
 <% if flash[:error].present? %>
     <div id="toasts">呼叫中<br><br>请稍等</div>
 <% end %>

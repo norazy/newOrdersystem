@@ -473,12 +473,13 @@
             margin: 3% auto 0;
             overflow: scroll;
             display: flex;
+            flex-direction: row-reverse;
             // float left をdisplay flexに変える
-            flex-wrap: wrap;
+            // flex-wrap: wrap;
             .forcook_table {
                 width: 464px;
                 // ↓横並びにする場合は以下のpaddingを挿入する
-                // padding: 0 6px;
+                padding: 0 6px;
                 // float: left;
                 .forcook_table2 {
                     width: 440px;
@@ -837,10 +838,8 @@
                         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
                         // height: 50px;
                     }
-                    
                 }
             }
-
         }
     }
 }

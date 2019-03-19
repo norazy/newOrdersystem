@@ -1,6 +1,7 @@
 class OrderlistController < ApplicationController
     # ↓サインインしているかどうかの確認
-    before_action :move_to_signin
+    before_action :move_to_signin, :check_cart
+    
     # def test
     #     render json: Orderlist.where(user_id: current_user.id)
     # end
@@ -180,6 +181,7 @@ class OrderlistController < ApplicationController
         orderlist.destroy if orderlist.user_id = current_user.id
         # サインインしてがメニューを注文した人なら、削除する
         redirect_back(fallback_location: root_path)
+        flash[:notice] = "Something"
     end
     # 未確定のものを確定にする部分
     def post_order
@@ -307,6 +309,11 @@ class OrderlistController < ApplicationController
     end
 
 private
+    def check_cart
+        # 現在ログインしているユーザーの状態が０のオーダーを引き出す
+        @cart = Orderlist.where(user_id: current_user.id).where(state: 0)
+
+    end
     def orderlist_params
         params.require(:orderlist).permit(:number, :option_id, :menu_id)
     end

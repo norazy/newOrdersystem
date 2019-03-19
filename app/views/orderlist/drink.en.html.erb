@@ -20,13 +20,16 @@
                  	<%end%>
                 </div>
                 <div class="menu_button orange">
-                    <a href="/en/order/pre_order/<%= current_user.id %>">
-                        <p>Cart</p>
+                    <a href="/en/order/ordered/<%= current_user.id %>">
+                        <p>Ordered</p>
                     </a>
                 </div>
                 <div class="menu_button orange">
-                    <a href="/en/order/ordered/<%= current_user.id %>">
-                        <p>Ordered</p>
+                    <a href="/en/order/pre_order/<%= current_user.id %>">
+                        <% if @cart.present? %>
+                            <div id="red_dot"></div>
+                        <% end %>
+                        <img src="/cart.png" alt="cart">
                     </a>
                 </div>
             </div>
@@ -57,7 +60,7 @@
                         <p class="double2">Dessert<br>Soup</p>
                     </a>
                 </div>
-                <div class="menu_button orange">
+                <div class="menu_button blue3">
                     <a href="/en/order/drink_menu">
                         <p>Drink</p>
                     </a>
