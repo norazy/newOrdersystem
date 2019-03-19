@@ -45,222 +45,226 @@
 }
 
 // オーダーのトップページ
-.toppage_background {
+.top_page {
     background-color: #f5f5dc;
     margin: 0;
     padding: 0;
-    min-width: 1024px;
-    min-height: 768px;
-    .top_page_upper {
-        height: 453px;
-        display: flex;
-        .top_page_upper_left {
-            height: 100%;
-            width: 796px;
-            .restaurante_image {
-                width: 98%;
+    .top_page_background {
+        width: 1024px;
+        height: 768px;
+        margin: 0 auto;
+        .top_page_upper {
+            height: 453px;
+            display: flex;
+            .top_page_upper_left {
                 height: 100%;
-                background-image: url('/ifuen4.jpg');
-                background-size:  cover;
-                box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4);
-                .top_page_nav_n_title{
-                    width: 100%;
-                    height: 261px;
-                    .menu_button_right {
-                        float: right;
-                        width: 300px;
-                        margin-right: 10px;
-                    }
-                    .top_page_nav {
-                        height: 88px;
-                        padding-top: 36px;
-                        .top_page_nav_button {
-                            width: 48px;
-                            padding: 6px;
-                            border: none;
-                            cursor: pointer;
-                            margin-left: 35px;
-                            background-color: rgba(225,225,225,0);
-                             i {
-                                color: #ffffff;
-                                font-size: 24px;
+                width: 796px;
+                .restaurante_image {
+                    width: 98%;
+                    height: 100%;
+                    background-image: url('/ifuen4.jpg');
+                    background-size:  cover;
+                    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4);
+                    .top_page_nav_n_title{
+                        width: 100%;
+                        height: 261px;
+                        .menu_button_right {
+                            float: right;
+                            width: 300px;
+                            margin-right: 10px;
+                        }
+                        .top_page_nav {
+                            height: 88px;
+                            padding-top: 36px;
+                            .top_page_nav_button {
+                                width: 48px;
+                                padding: 6px;
+                                border: none;
+                                cursor: pointer;
+                                margin-left: 35px;
+                                background-color: rgba(225,225,225,0);
+                                 i {
+                                    color: #ffffff;
+                                    font-size: 24px;
+                                }
                             }
-                        }
-                        
-                        #nav_button2 {
-                            display: none;
-                        }
-                        .top_page_nav_div {
-                            margin-top: 6px;
-                            margin-left: 56px;
-                            width: 128px;
-                            ul {
-                                width: 100%;
-                                list-style: none;
-                                margin: 0;
-                                padding: 0;
-
-                                li {
-                                    border-bottom: dotted 2px #af6469;
-                                    background: #efefef;
-                                    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
-                                    height: 40px;
-                                    text-align: center;
-                                    position: relative;
-                                    a {
-                                        position: absolute;
-                                        top: 0;
-                                        bottom: 0;
-                                        left: 0;
-                                        right: 0;
-                                        font-size: 19px;
-                                        color: #343434;
-                                        display: block;
-                                        padding: 10px;
-                                        text-decoration: none;
+                            
+                            #nav_button2 {
+                                display: none;
+                            }
+                            .top_page_nav_div {
+                                margin-top: 6px;
+                                margin-left: 56px;
+                                width: 128px;
+                                ul {
+                                    width: 100%;
+                                    list-style: none;
+                                    margin: 0;
+                                    padding: 0;
+    
+                                    li {
+                                        border-bottom: dotted 2px #af6469;
+                                        background: #efefef;
+                                        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+                                        height: 40px;
+                                        text-align: center;
+                                        position: relative;
+                                        a {
+                                            position: absolute;
+                                            top: 0;
+                                            bottom: 0;
+                                            left: 0;
+                                            right: 0;
+                                            font-size: 19px;
+                                            color: #343434;
+                                            display: block;
+                                            padding: 10px;
+                                            text-decoration: none;
+                                        }
+                                    }
+                                    li:last-child {
+                                        border-bottom: none;
                                     }
                                 }
-                                li:last-child {
-                                    border-bottom: none;
-                                }
+                            }
+                        }
+                    }
+    
+                }
+            }
+            .top_page_upper_right {
+                height: 100%;
+                width: 228px;
+                .top_page_tabs {
+                    width: 128px;
+                    height: 421px;
+                    margin: 0 auto;
+                    margin-top: 30px;
+                    .top_page_tab {
+                        width: 100%;
+                        height: 70px;
+                        margin-bottom: 48px;
+                        background-color: #ea5317;
+                        text-align: center;
+                        border-radius: 3px;
+                        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4);
+                        position: relative;
+                        a {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            color: #ffffff;
+                            p {
+                                font-size: 20px;
+                                margin: 0;
+                                margin-top: 26px;
+                                display: inline-block;
+                            }
+                        }
+                    }
+                    div.top_page_tab:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            
+        }
+        .top_page_bottom {
+            height: 315px;
+            width: 1024px;
+            .clearfix {
+                content: "";
+                clear: both;
+                display: block;
+            }
+            .top_page_bottom_menus {
+                width: 920px;
+                height: 198px;
+                margin: 0 auto;
+                padding-top: 42px;
+                .top_page_bottom_menus_left {
+                    float: left;
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 751px;
+                    .top_page_bottom_menu {
+                        border-radius: 3px;
+                        width: 211px;
+                        height: 72px;
+                        border: 1px solid #000000;
+                        margin-right: 36px;
+                        background-color: #000a34;
+                        // color: #ffffff;
+                        text-align: center;
+                        box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.4);
+                        margin-top: 21px;
+                        position: relative;
+                        a {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            color: #ffffff;
+                            text-decoration: none;
+                            p {
+                                font-size: 22px;
+                                margin: 0;
+                                margin-top: 26px;
+                            }
+                        }
+                    }
+                    .top_page_bottom_menu:nth-child(n+4) {
+                        width: 211px;
+                        height: 72px;
+                        border: 1px solid #000000;
+                        margin-right: 36px;
+                        margin-top: 28px;
+                        p {
+                            margin-top: 15px;
+                        }
+                    }
+                }
+                .recommend_menu {
+                    width: 163px;
+                    height: 198px;
+                    border-radius: 2px;
+                    float: right;
+                    // background-color: #ff0000;
+                    background-color: #e94e47;
+                    opacity: 0.8;
+                    box-shadow: -2px -2px 7px rgba(0, 0, 0, 0.4);
+                    .recommend_menu_letter {
+                        border-radius: 2px;
+                        width: 121px;
+                        height: 157px;
+                        border: 3px solid #ffffff;
+                        margin: 0 auto;
+                        margin-top: 20px;
+                        text-align: center;
+                        position: relative;
+                        a {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            text-decoration: none;
+                            p {
+                                font-size: 28px;
+                                color: #ffffff;
+                                margin: 0;
+                                margin-top: 43px;
+                                letter-spacing: 3px;
+                                line-height: 34px;
                             }
                         }
                     }
                 }
-
             }
-        }
-        .top_page_upper_right {
-            height: 100%;
-            width: 228px;
-            .top_page_tabs {
-                width: 128px;
-                height: 421px;
-                margin: 0 auto;
-                margin-top: 30px;
-                .top_page_tab {
-                    width: 100%;
-                    height: 70px;
-                    margin-bottom: 48px;
-                    background-color: #ea5317;
-                    text-align: center;
-                    border-radius: 3px;
-                    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4);
-                    position: relative;
-                    a {
-                        position: absolute;
-                        top: 0;
-                        bottom: 0;
-                        left: 0;
-                        right: 0;
-                        color: #ffffff;
-                        p {
-                            font-size: 20px;
-                            margin: 0;
-                            margin-top: 26px;
-                            display: inline-block;
-                        }
-                    }
-                }
-                div.top_page_tab:last-child {
-                    margin-bottom: 0;
-                }
-            }
-        }
-        
-    }
-    .top_page_bottom {
-        height: 315px;
-        width: 1024px;
-        .clearfix {
-            content: "";
-            clear: both;
-            display: block;
-        }
-        .top_page_bottom_menus {
-            width: 920px;
-            height: 198px;
-            margin: 0 auto;
-            padding-top: 42px;
-            .top_page_bottom_menus_left {
-                float: left;
-                display: flex;
-                flex-wrap: wrap;
-                width: 751px;
-                .top_page_bottom_menu {
-                    border-radius: 3px;
-                    width: 211px;
-                    height: 72px;
-                    border: 1px solid #000000;
-                    margin-right: 36px;
-                    background-color: #000a34;
-                    // color: #ffffff;
-                    text-align: center;
-                    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.4);
-                    margin-top: 21px;
-                    position: relative;
-                    a {
-                        position: absolute;
-                        top: 0;
-                        bottom: 0;
-                        left: 0;
-                        right: 0;
-                        color: #ffffff;
-                        text-decoration: none;
-                        p {
-                            font-size: 22px;
-                            margin: 0;
-                            margin-top: 26px;
-                        }
-                    }
-                }
-                .top_page_bottom_menu:nth-child(n+4) {
-                    width: 211px;
-                    height: 72px;
-                    border: 1px solid #000000;
-                    margin-right: 36px;
-                    margin-top: 28px;
-                    p {
-                        margin-top: 15px;
-                    }
-                }
-            }
-            .recommend_menu {
-                width: 163px;
-                height: 198px;
-                border-radius: 2px;
-                float: right;
-                background-color: #ff0000;
-                opacity: 0.8;
-                box-shadow: -2px -2px 7px rgba(0, 0, 0, 0.4);
-                .recommend_menu_letter {
-                    border-radius: 2px;
-                    width: 121px;
-                    height: 157px;
-                    border: 3px solid #ffffff;
-                    margin: 0 auto;
-                    margin-top: 20px;
-                    text-align: center;
-                    position: relative;
-                    a {
-                        position: absolute;
-                        top: 0;
-                        bottom: 0;
-                        left: 0;
-                        right: 0;
-                        text-decoration: none;
-                        p {
-                            font-size: 28px;
-                            color: #ffffff;
-                            margin: 0;
-                            margin-top: 43px;
-                            letter-spacing: 3px;
-                            line-height: 34px;
-                        }
-                    }
-                }
-            }
-        }
+        }    
     }
 }
 
@@ -609,7 +613,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    margin: auto;
+    margin: 80px auto 0;
     width: 912px;
     height: 640px;
     // #orderlist_menu_id_2 {
