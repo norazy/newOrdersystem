@@ -98,3 +98,6 @@
 <% if flash[:notice].present? %>
     <div id="toasts">Order Accepted!</div>
 <% end %>
+<% if flash[:error].present? %>
+    <div id="toasts">Calling...<br><br>We will come soon!</div>
+<% end %>

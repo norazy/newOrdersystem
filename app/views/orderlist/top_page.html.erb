@@ -101,3 +101,6 @@
 <% if flash[:notice].present? %>
     <div id="toasts">ご注文承りました！</div>
 <% end %>
+<% if flash[:error].present? %>
+    <div id="toasts">ただいまお伺いします<br><br>少々お待ちくださいませ</div>
+<% end %>
